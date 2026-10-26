@@ -1,0 +1,260 @@
+.modal:has(> .audience-selection) {
+  width: min(740px, 95vw);
+  max-width: 740px;
+  max-height: calc(100dvh - 48px);
+}
+.audience-selection {
+  min-width: 0;
+  color: var(--ds-text);
+  font-size: var(--text-xs);
+}
+.audience-selection-intro {
+  margin: -3px 0 17px;
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.7;
+}
+.audience-selection-form {
+  border-bottom: 1px solid var(--ds-border);
+  padding-bottom: 16px;
+}
+.audience-selection-fields {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.9fr;
+  gap: 12px;
+}
+.audience-selection-fields > label {
+  min-width: 0;
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+}
+.audience-selection-fields select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin-top: 6px;
+  padding: 9px 7px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+  color: var(--ds-text);
+  background: var(--ds-surface-inset);
+  font-size: var(--text-xs);
+}
+.audience-selection-input-help {
+  margin: 11px 0 0;
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.7;
+}
+.audience-selection-input-help > strong {
+  color: var(--ds-text);
+  font-weight: 500;
+}
+.audience-selection-run-row,
+.audience-selection-commit {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 13px;
+}
+.audience-selection button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 11px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+  color: var(--ds-text);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  min-height: var(--control-sm);
+}
+.audience-selection button.audience-selection-primary {
+  color: var(--ds-text);
+  border-color: var(--ds-border);
+  background: var(--ds-surface-raised);
+}
+.audience-selection button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.audience-selection button:focus-visible,
+.audience-selection select:focus-visible,
+.audience-selection summary:focus-visible {
+  outline: var(--focus-width) solid var(--ds-focus);
+  outline-offset: var(--focus-offset);
+}
+.audience-selection-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ds-text-muted);
+  font: var(--text-xs) var(--font-mono);
+}
+.audience-selection-progress progress {
+  width: 70px;
+  height: 4px;
+  accent-color: var(--ds-primary);
+}
+.audience-selection-notice,
+.audience-selection-error,
+.audience-selection-stale {
+  margin: 13px 0 0;
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.7;
+}
+.audience-selection-error,
+.audience-selection-stale {
+  padding-left: 10px;
+  border-left: 2px solid var(--ds-border);
+  color: var(--ds-warning);
+}
+.audience-selection-result {
+  margin-top: 18px;
+}
+.audience-selection-result-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.audience-selection-result-heading h3 {
+  margin: 0;
+  color: var(--ds-text);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+.audience-selection-result-heading p {
+  margin: 6px 0 0;
+  color: var(--ds-text-muted);
+  font: var(--text-xs)/1.7 var(--font-mono);
+}
+.audience-selection-result-heading > span {
+  padding: 4px 6px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+}
+.audience-selection-counts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.audience-selection-counts > div {
+  padding: 12px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+  background: var(--ds-surface-raised);
+}
+.audience-selection-counts dt {
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+}
+.audience-selection-counts dd {
+  margin: 7px 0 0;
+  color: var(--ds-text);
+  font: 18px var(--font-mono);
+}
+.audience-selection-counts > div:first-child dd {
+  color: var(--ds-text);
+}
+.audience-selection-ids {
+  margin: 0;
+  padding: 10px 11px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+  color: var(--ds-text-muted);
+  font: var(--text-xs)/1.8 var(--font-mono);
+  background: var(--ds-surface-inset);
+  overflow-wrap: anywhere;
+}
+.audience-selection-ids > strong {
+  color: var(--ds-text);
+  font-weight: 400;
+}
+.audience-selection-history {
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.7;
+  margin: 10px 0 0;
+}
+.audience-selection-metadata {
+  margin-top: 12px;
+  padding: 10px 11px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+}
+.audience-selection-metadata summary {
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  cursor: pointer;
+}
+.audience-selection-metadata dl {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 7px 16px;
+  margin: 13px 0 2px;
+  font: var(--text-xs)/1.6 var(--font-mono);
+}
+.audience-selection-metadata dt {
+  color: var(--ds-text-subtle);
+}
+.audience-selection-metadata dd {
+  margin: 0;
+  color: var(--ds-text-muted);
+  overflow-wrap: anywhere;
+}
+.audience-selection-limitations {
+  padding-left: 15px;
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.7;
+  margin: 13px 0 0;
+}
+.audience-selection-commit > span {
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+}
+.audience-selection-footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 18px;
+}
+.audience-selection-footer p {
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 510px;
+}
+.audience-selection-footer button {
+  flex: 0 0 auto;
+}
+@media (max-width: 520px) {
+  .audience-selection-fields {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 11px;
+  }
+  .audience-selection-counts > div {
+    padding: 10px 8px;
+  }
+  .audience-selection-counts dd {
+    font-size: var(--text-lg);
+  }
+  .audience-selection-metadata dl {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+  }
+  .audience-selection-metadata dd {
+    margin-bottom: 7px;
+  }
+}

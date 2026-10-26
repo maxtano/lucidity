@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Lucidity · Direction lab</title><link rel="stylesheet" href="/style.css"><script src="/app.js" type="module"></script></head>
+<body>
+<header class="page-head"><a href="/" class="wordmark">lucidity<span>direction lab</span></a><a href="/research" class="text-link">Research &amp; what’s real ↗</a></header>
+<main>
+  <div class="intro"><div><p class="eyebrow">ONE TASK · THREE EXPERIENCES</p><h1>Where should Lucidity live?</h1><p>Connect a demo drone. Ask for a check. Review one change.</p></div><span class="demo-label">SIMULATED HARDWARE</span></div>
+  <nav class="modes" aria-label="Choose an experience">
+    <button data-view="plugin" aria-pressed="true"><span class="number">01</span><span><strong>Inside your chat</strong><small>Lucidity is a tool you call.</small></span><span class="mode-arrow">↗</span></button>
+    <button data-view="standalone" aria-pressed="false"><span class="number">02</span><span><strong>Lucidity chat</strong><small>The conversation is the app.</small></span><span class="mode-arrow">↗</span></button>
+    <button data-view="workbench" aria-pressed="false"><span class="number">03</span><span><strong>Chat + workbench</strong><small>Talk, with the drone in view.</small></span><span class="mode-arrow">↗</span></button>
+  </nav>
+  <div class="flow" aria-label="Roles in this experience"><span>You <small>give direction</small></span><i>→</i><span id="flow-chat">Your assistant <small>interprets</small></span><i>→</i><span>Lucidity <small>checks &amp; records</small></span><i>→</i><span>Demo drone <small>reports state</small></span></div>
+  <section class="desk"><div><span class="status-dot" id="connection-dot"></span><strong id="connection-label">Demo drone disconnected</strong><span class="desk-note">Your physical step, simulated.</span></div><div class="desk-actions"><button id="connect" class="primary">Connect simulated drone</button><button id="reset" class="quiet">Start over</button></div></section>
+  <div id="error" class="error" role="alert" hidden></div>
+  <section class="sample plugin" id="sample" aria-label="Interactive sample">
+    <aside class="aircraft-nav" id="aircraft-nav" hidden><p class="eyebrow">YOUR AIRCRAFT</p><div class="selected-aircraft">◈ &nbsp; Lucidity One<small>Simulated · personal workspace</small></div><div class="nav-footer">The drone’s record stays<br>with Lucidity.</div></aside>
+    <section id="workbench" class="workbench" hidden>
+      <div class="bench-heading"><div><p class="eyebrow">LUCIDITY ONE</p><h2>Your radio link</h2></div><span id="link-badge" class="badge">Disconnected</span></div>
+      <div class="radio-diagram"><div><span class="radio-icon">▤</span><strong>Ground</strong><small id="ground">Channel —</small></div><div class="radio-connection" id="radio-connection"><span>··············</span><small id="link-detail">Waiting for connection</small></div><div><span class="radio-icon">✣</span><strong>Aircraft</strong><small id="aircraft">Channel —</small></div></div>
+      <div id="bench-proposal"></div>
+      <div class="record"><p class="eyebrow">DRONE RECORD</p><div id="bench-record">No changes yet.</div><a href="/api/receipt" id="export" hidden>Download result ↓</a></div>
+    </section>
+    <section class="chat">
+      <div class="chat-head"><div><strong id="chat-title">Your assistant</strong><span id="chat-subtitle">Lucidity tools inside a familiar conversation</span></div><button id="real-plugin" class="quiet">Try real tools ↗</button></div>
+      <div class="messages" id="messages" role="log" aria-label="Conversation" aria-live="polite"></div>
+      <div id="inline-proposal"></div>
+      <div class="suggestions"><button data-prompt="Check my drone">Check my drone ↗</button><button data-prompt="Why is the link broken?">Explain the issue ↗</button><button data-prompt="What changed?">What changed? ↗</button></div>
+      <form id="composer"><label class="sr-only" for="message">Message Lucidity</label><textarea id="message" rows="1" maxlength="2000" placeholder="Ask about your drone…" required></textarea><button class="primary" id="send" type="submit" aria-label="Send message">↑</button></form>
+      <div class="chat-foot"><label for="engine">Conversation <select id="engine"><option value="demo">Instant demo</option><option value="live">Live Codex · ChatGPT session</option></select></label><span id="engine-note">Scripted replies · no model usage</span></div>
+    </section>
+  </section>
+  <div class="reflection"><p id="reflection"><strong>Notice:</strong> Can the conversation do enough without a separate application?</p><span>Switch views to keep the same drone. Start over to replay.</span></div>
+</main>
+<dialog id="plugin-dialog"><button class="dialog-close quiet" id="close-dialog" aria-label="Close">×</button><p class="eyebrow">REAL MCP TOOLS</p><h2>Try it in your existing assistant.</h2><p>Keep this lab running. In Terminal, run:</p><pre>cd lucidity/direction-lab
+npm run chat</pre><p>Codex opens with four Lucidity tools, using its existing ChatGPT sign-in. Ask it to check the demo drone, then approve the proposed change in that chat.</p><p class="muted">This is a real local MCP trial in Codex. The browser’s “Inside your chat” view is an interaction concept, not the ChatGPT website. No global plugin settings are changed.</p><a href="/research">See integration details ↗</a></dialog>
+<footer class="page-foot">Lucidity experiments / October 2026 <span>No flight controls. No real hardware connection.</span></footer>
+</body></html>

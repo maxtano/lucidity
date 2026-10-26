@@ -1,0 +1,92 @@
+@import url('/fonts/fonts.css');
+
+html { color-scheme: dark; scroll-behavior: smooth; }
+html[data-theme='light'] { color-scheme: light; }
+body { margin: 0; background: var(--ds-bg); color: var(--ds-text); font-family: var(--font-sans); }
+.ds-catalog, .ds-catalog * { box-sizing: border-box; }
+.ds-catalog { max-width: 1280px; margin: 0 auto; padding: var(--space-8); font-size: var(--text-base); line-height: var(--leading-body); }
+.ds-catalog :focus-visible { outline: var(--focus-width) solid var(--ds-focus); outline-offset: var(--focus-offset); }
+.ds-catalog ::selection { background: var(--ds-selection); color: var(--ds-selection-text); }
+.ds-catalog h1, .ds-catalog h2, .ds-catalog h3, .ds-catalog p { margin: 0; }
+.ds-catalog h1 { font-size: var(--text-title); line-height: var(--leading-tight); letter-spacing: -.7px; margin: var(--space-2) 0; font-weight: var(--weight-strong); }
+.ds-catalog h2 { font-size: 19px; font-weight: 600; letter-spacing: -.3px; }
+.ds-catalog h3 { font-size: var(--text-base); font-weight: var(--weight-strong); }
+.ds-catalog code { font-family: var(--font-mono); font-size: var(--text-xs); }
+.ds-catalog-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.ds-catalog-header p, .ds-catalog-section-title p { color: var(--ds-text-muted); }
+.ds-catalog-eyebrow { font-size: var(--text-xs); letter-spacing: 1.2px; font-weight: var(--weight-strong); color: var(--ds-text-subtle); }
+.ds-catalog-theme { display: flex; gap: 4px; }
+.ds-catalog-nav { display: flex; flex-wrap: wrap; gap: 24px; border-top: 1px solid var(--ds-border); border-bottom: 1px solid var(--ds-border); margin: 24px 0 0; padding: 12px 0; }
+.ds-catalog-nav a { color: var(--ds-text-muted); text-decoration: none; border-radius: var(--radius-control); }
+.ds-catalog-nav a:hover { color: var(--ds-text); }
+.ds-catalog-section { padding-top: 32px; scroll-margin-top: 16px; }
+.ds-catalog-section-title { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+.ds-catalog-palette { display: grid; gap: 16px; }
+.ds-catalog-palette h3 { color: var(--ds-text-muted); margin-bottom: 8px; }
+.ds-catalog-swatches { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.ds-catalog-swatch { border: 1px solid var(--ds-border); background: var(--ds-surface); border-radius: var(--radius-panel); overflow: hidden; min-width: 0; }
+.ds-catalog-color { display: block; height: 28px; background: var(--swatch); border-bottom: 1px solid var(--ds-border); }
+.ds-catalog-swatch code, .ds-catalog-swatch small { display: block; padding: 0 8px; overflow-wrap: anywhere; }
+.ds-catalog-swatch code { padding-top: 6px; }
+.ds-catalog-swatch small { color: var(--ds-text-muted); font-family: var(--font-mono); font-size: var(--text-xs); padding-bottom: 6px; }
+.ds-catalog-two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ds-catalog-card { padding: 16px; min-width: 0; }
+.ds-catalog-card > h3 { margin-bottom: 16px; }
+.ds-catalog-button-table { display: grid; gap: 8px; }
+.ds-catalog-button-row { display: grid; grid-template-columns: 80px 1fr 1fr; align-items: center; gap: 12px; }
+.ds-catalog-table-heading { color: var(--ds-text-subtle); font-size: 11px; }
+.ds-catalog-sizes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 16px; margin-top: 16px; border-top: 1px solid var(--ds-border); }
+.ds-catalog-help { color: var(--ds-text-muted); font-size: 11px; margin-top: 12px !important; }
+.ds-catalog-form { display: grid; gap: 12px; }
+.ds-catalog-form > label:not(.ds-catalog-checkbox) { display: grid; gap: 6px; color: var(--ds-text-muted); font-size: 12px; }
+.ds-catalog-form input:not([type='checkbox']), .ds-catalog-form select { width: 100%; }
+.ds-catalog-checkbox { display: flex; align-items: center; gap: 8px; }
+.ds-catalog-checkbox input { margin: 0; accent-color: var(--ds-primary); }
+.ds-catalog-form > button { justify-self: start; }
+.ds-catalog-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.ds-catalog-notices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ds-catalog-notices > * { display: flex; gap: 8px; align-items: baseline; }
+.ds-catalog-notices strong { font-weight: 600; }
+.ds-catalog-foundations { display: grid; grid-template-columns: 1.3fr 1fr .8fr; gap: 16px; }
+.ds-catalog-type { display: grid; gap: 8px; }
+.ds-catalog-type > h3 { margin-bottom: 4px; }
+.ds-catalog-type-title { font-size: 19px; font-weight: 600; letter-spacing: -.3px; }
+.ds-catalog-muted { color: var(--ds-text-muted); }
+.ds-catalog-subtle, .ds-catalog-type > small { color: var(--ds-text-subtle); }
+.ds-catalog-type > small { font-size: var(--text-xs); }
+.ds-catalog-corners { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ds-catalog-corner { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px 8px; border: 1px solid var(--ds-border-strong); background: var(--ds-surface-inset); }
+.ds-catalog-corner-2 { border-radius: var(--radius-control); }
+.ds-catalog-corner-4 { border-radius: var(--radius-panel); }
+.ds-catalog-corner small { color: var(--ds-text-muted); font-size: 11px; }
+.ds-catalog-spacing { display: grid; gap: 8px; }
+.ds-catalog-spacing > div { display: flex; gap: 12px; align-items: center; }
+.ds-catalog-spacing code { width: 32px; color: var(--ds-text-muted); }
+.ds-catalog-spacing span { display: block; height: 12px; background: var(--ds-accent); border-radius: var(--radius-control); }
+.ds-catalog-layers { margin-top: var(--space-4); }
+.ds-catalog-layers > h3 { margin-bottom: var(--space-1); }
+.ds-catalog-layers dl { display: flex; flex-wrap: wrap; gap: var(--space-6); margin: var(--space-4) 0 0; }
+.ds-catalog-layers dl > div { min-width: 110px; }
+.ds-catalog-layers dt { color: var(--ds-text-muted); }
+.ds-catalog-layers dd { font-family: var(--font-mono); font-size: var(--text-lg); margin: var(--space-1) 0 0; }
+.ds-catalog-example { padding: 16px; }
+.ds-catalog-example-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.ds-catalog-example-heading > div { flex: 1; }
+.ds-catalog-example-heading h3 { font-size: 16px; margin: 2px 0; }
+.ds-catalog-example-heading p { color: var(--ds-text-muted); font-size: 12px; }
+.ds-catalog-example-icon { width: 40px; height: 40px; border: 1px solid var(--ds-accent-border); background: var(--ds-accent-bg); color: var(--ds-accent); border-radius: var(--radius-panel); display: grid; place-items: center; }
+.ds-catalog-example-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; }
+.ds-catalog-example-actions small { color: var(--ds-text-muted); margin-left: 4px; }
+.ds-catalog-footer { border-top: 1px solid var(--ds-border); padding-top: 16px; margin-top: 32px; color: var(--ds-text-subtle); font-size: 11px; }
+@media (max-width: 850px) { .ds-catalog { padding: 24px; } .ds-catalog-swatches { grid-template-columns: repeat(4, minmax(0, 1fr)); } .ds-catalog-two-column, .ds-catalog-foundations { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .ds-catalog { padding: 16px; } .ds-catalog-header { align-items: flex-start; gap: 12px; } .ds-catalog h1 { font-size: 24px; } .ds-catalog-swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ds-catalog-notices { grid-template-columns: 1fr; } .ds-catalog-button-row { grid-template-columns: 65px 1fr 1fr; gap: 8px; } .ds-catalog-theme { flex-direction: column; } .ds-catalog-nav { gap: 16px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.ds-color-balance { display: grid; grid-template-columns: 6fr 3fr 1fr; min-height: 88px; border: 1px solid var(--ds-border); border-radius: var(--radius-panel); overflow: hidden; }
+.ds-color-balance > div { display: flex; flex-direction: column; justify-content: center; gap: var(--space-1); padding: var(--space-3); background: var(--ds-bg); }
+.ds-color-balance > div:nth-child(2) { background: var(--ds-chrome); }
+.ds-color-balance > div:nth-child(3) { background: var(--ds-primary); color: var(--ds-on-primary); }
+.ds-color-balance strong { font-size: var(--text-lg); }
+.ds-color-balance span { font-size: var(--text-xs); overflow-wrap: anywhere; }
+.ds-color-balance ~ .ds-catalog-palette { margin-top: var(--space-5); }
+@media (max-width: 520px) { .ds-color-balance > div { padding: var(--space-2) var(--space-1); } .ds-color-balance strong { font-size: var(--text-base); } }

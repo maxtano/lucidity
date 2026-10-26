@@ -1,0 +1,56 @@
+{
+  "source": "Google Fonts CSS API; original SIL Open Font Licenses from google/fonts",
+  "retrieved": "2026-10-14",
+  "fonts": [
+    {
+      "filename": "libre-baskerville-italic-latin-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/librebaskerville/v24/kmKWZrc3Hgbbcjq75U4uslyuy4kn0qNccR04_RUJeby2OU36SjNDlufweKgfqIfzTg.woff2",
+      "sha256": "6eb67e6e7abeea2fe33e04c7455e42b713e6f5ce097c53fb51a5b7f9b0b4690a"
+    },
+    {
+      "filename": "libre-baskerville-italic-latin.woff2",
+      "url": "https://fonts.gstatic.com/s/librebaskerville/v24/kmKWZrc3Hgbbcjq75U4uslyuy4kn0qNccR04_RUJeby2OU36SjNNlufweKgfqIc.woff2",
+      "sha256": "f1eeeb479c5f256eeb17fc24709d8dccee6dea59e987f5b46507cbed0daed32e"
+    },
+    {
+      "filename": "libre-baskerville-normal-latin-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/librebaskerville/v24/kmKUZrc3Hgbbcjq75U4uslyuy4kn0olVQ-LglH6T17uj8Q4iAANPnObSfLAegIc.woff2",
+      "sha256": "027c36228c19634257e3168cc268f76d14f649279cbebf29857b209e8e0513c1"
+    },
+    {
+      "filename": "libre-baskerville-normal-latin.woff2",
+      "url": "https://fonts.gstatic.com/s/librebaskerville/v24/kmKUZrc3Hgbbcjq75U4uslyuy4kn0olVQ-LglH6T17uj8Q4iDgNPnObSfLAe.woff2",
+      "sha256": "a4ec066d8814044c28b1e99b6ddf7ef58702ef9295de8b94fa0c9841d807dc84"
+    },
+    {
+      "filename": "manrope-normal-cyrillic-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggqxSvfedN62Zw.woff2",
+      "sha256": "e8c0b39992f06b3dc9a9834494088014859f363bf6ca8792b6bb07e17c7965f3"
+    },
+    {
+      "filename": "manrope-normal-cyrillic.woff2",
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggOxSvfedN62Zw.woff2",
+      "sha256": "95a493061fe0a8d0d027c2892747134ba747141112d3be4d5022e70ab7d3a1a6"
+    },
+    {
+      "filename": "manrope-normal-greek.woff2",
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggSxSvfedN62Zw.woff2",
+      "sha256": "40af11327fe5308166c6cb5787808b042db6da889abf602f0a4876c49675d87e"
+    },
+    {
+      "filename": "manrope-normal-vietnamese.woff2",
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggixSvfedN62Zw.woff2",
+      "sha256": "bab757f8a0a1bc04055ee98cb5777f3254aab11f6d222366e1f40a36f390506a"
+    },
+    {
+      "filename": "manrope-normal-latin-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggmxSvfedN62Zw.woff2",
+      "sha256": "ce093b341d9c10658ee1eaa85c5f8042ff3307bc6ccfc5f405616eb437f0009e"
+    },
+    {
+      "filename": "manrope-normal-latin.woff2",
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2",
+      "sha256": "e310b55a7fd9677f5e3555e6c6c4d064fa1f1d24393f0ddbe217cea12a8c432f"
+    }
+  ]
+}

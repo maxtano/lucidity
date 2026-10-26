@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+.env*
+!.env.example
+artifacts/
+
+# Local code and firmware workbench artifacts
+workbench-files/

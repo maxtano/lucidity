@@ -1,0 +1,3 @@
+/* Retired compatibility sheet. All workspace/studio surfaces now consume the shared
+ * light/dark semantic tokens in design-system/tokens.css directly.
+ * Do not add appearance-specific selector overrides here. */

@@ -1,0 +1,44 @@
+{
+  "name": "lucidity-drone-studio",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.12.0 || >=24.0.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "agent": "node --import tsx scripts/agent.ts",
+    "agent:eval": "node --import tsx scripts/evaluate-agent.ts",
+    "benchmark": "node --import tsx scripts/benchmark.ts",
+    "example": "node --import tsx scripts/expert-example.ts",
+    "dev:demo": "vite --config vite.demo.config.ts --open /demo.html",
+    "build:demo": "tsc -b && node scripts/build-demo.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "node-mavlink": "^2.3.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "serialport": "^13.0.0",
+    "three": "^0.180.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.6",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@types/three": "^0.180.0",
+    "@vitejs/plugin-react": "^5.0.3",
+    "tsx": "^4.20.5",
+    "typescript": "~5.9.2",
+    "vite": "^7.3.7",
+    "vitest": "^4.1.12"
+  },
+  "overrides": {
+    "xml2js": "0.6.2"
+  }
+}

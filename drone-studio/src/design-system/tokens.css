@@ -1,0 +1,231 @@
+/* Lucidity design system. The only UI palette definitions live here.
+ * Authored show/light colors and measured visualization data are not UI palette tokens. */
+:root {
+  --font-sans: 'Manrope', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --font-editorial: 'Libre Baskerville', Georgia, serif;
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-base: 13px;
+  --text-lg: 16px;
+  --text-title: 28px;
+  --leading-body: 1.6;
+  --leading-tight: 1.3;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-strong: 600;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --radius-control: 2px;
+  --radius-panel: 4px;
+  --control-sm: 32px;
+  --control-md: 40px;
+  --control-lg: 44px;
+  --icon-sm: 14px;
+  --icon-md: 16px;
+  --icon-lg: 20px;
+  --border-width: 1px;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+  --motion-fast: 120ms;
+  --motion-normal: 180ms;
+  --motion-ease: ease-out;
+  --layer-navigation: 90;
+  --layer-chrome: 100;
+  --layer-menu: 120;
+  --layer-scrim: 140;
+  --layer-drawer: 150;
+  --layer-modal: 200;
+  --layer-toast: 300;
+  /* Fixed-dark preview material; independent of authored drone RGB/light palettes. */
+  --ds-canvas-bg: #111719;
+  --ds-canvas-surface: #202a2e;
+  --ds-canvas-text: #e7eceb;
+  --ds-canvas-muted: #aebbbd;
+  --ds-canvas-border: #52686c;
+  --ds-canvas-accent: #b3cdd2;
+  --ds-horizon-sky: #294653;
+  --ds-horizon-ground: #4c382a;
+  --ds-horizon-mark: #e7eceb;
+  --ds-axis-x: #cd9c90;
+  --ds-axis-y: #a1b89d;
+  --ds-axis-z: #9eb7cc;
+}
+
+:root,
+:root[data-theme='dark'],
+.stage {
+  color-scheme: dark;
+  /* 60: graphite workspace. 30: charcoal layers. 10: action, selection and state. */
+  --ds-bg: #161819;
+  --ds-surface: #202426;
+  --ds-surface-raised: #2c3133;
+  --ds-surface-inset: #1b1e20;
+  --ds-chrome: #24282a;
+  --ds-text: #ecece8;
+  --ds-text-muted: #b9bfbb;
+  --ds-text-subtle: #a6afab;
+  --ds-border: #444c4d;
+  --ds-border-strong: #82908a;
+  --ds-primary: #d6e0dd;
+  --ds-primary-hover: #f0f3f2;
+  --ds-on-primary: #182429;
+  --ds-accent: #b1c9c7;
+  --ds-accent-bg: #273334;
+  --ds-accent-border: #657e84;
+  --ds-feature: #c9977c;
+  --ds-feature-bg: #2e2722;
+  --ds-feature-border: #8e6d5c;
+  --ds-feature-text: #e1b69e;
+  --ds-on-feature: #241b17;
+  --ds-sage: #afc0ab;
+  --ds-sage-bg: #282f2a;
+  --ds-mauve: #c4b9cc;
+  --ds-mauve-bg: #2e2a31;
+  --ds-success: #b5cbaa;
+  --ds-success-bg: #243125;
+  --ds-success-border: #70856a;
+  --ds-warning: #dbc39a;
+  --ds-warning-bg: #342e23;
+  --ds-warning-border: #8f7c59;
+  --ds-danger: #e0aaa3;
+  --ds-danger-bg: #382627;
+  --ds-danger-border: #a2736f;
+  --ds-info: #b1c9c7;
+  --ds-info-bg: #273334;
+  --ds-info-border: #657e84;
+  --ds-overlay: #090d10b3;
+  --ds-shadow-color: #00000059;
+  --ds-focus: #d6ab91;
+  --ds-selection: #536b72;
+  --ds-selection-text: #ffffff;
+  --ds-grid: #b1c9c70a;
+  --texture-grain: url('/textures/grain.svg');
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  /* 60: warm paper. 30: ivory, linen and taupe layers. 10: restrained teal/plum accents. */
+  --ds-bg: #f6f3ec;
+  --ds-surface: #fffdf8;
+  --ds-surface-raised: #e9e3d9;
+  --ds-surface-inset: #f0ebe2;
+  --ds-chrome: #e8e2d8;
+  --ds-text: #343137;
+  --ds-text-muted: #585259;
+  --ds-text-subtle: #625b61;
+  --ds-border: #d4cabd;
+  --ds-border-strong: #8c8176;
+  --ds-primary: #174f63;
+  --ds-primary-hover: #103e50;
+  --ds-on-primary: #ffffff;
+  --ds-accent: #59425b;
+  --ds-accent-bg: #ece6eb;
+  --ds-accent-border: #947b96;
+  --ds-feature: #86533e;
+  --ds-feature-bg: #f2e5dc;
+  --ds-feature-border: #b48771;
+  --ds-feature-text: #794530;
+  --ds-on-feature: #ffffff;
+  --ds-sage: #455d49;
+  --ds-sage-bg: #e5ece1;
+  --ds-mauve: #674e6c;
+  --ds-mauve-bg: #ece6ed;
+  --ds-success: #365a38;
+  --ds-success-bg: #e5eee1;
+  --ds-success-border: #7f9877;
+  --ds-warning: #705224;
+  --ds-warning-bg: #f2ead8;
+  --ds-warning-border: #a38b58;
+  --ds-danger: #903e39;
+  --ds-danger-bg: #f6e6e1;
+  --ds-danger-border: #bd827b;
+  --ds-info: #174f63;
+  --ds-info-bg: #e0ebed;
+  --ds-info-border: #6a8991;
+  --ds-overlay: #3023335c;
+  --ds-shadow-color: #4b352c1a;
+  --ds-focus: #6f5274;
+  --ds-selection: #e1d2e4;
+  --ds-selection-text: #46304b;
+  --ds-grid: #775d430a;
+  --texture-grain: none;
+}
+
+/* One compatibility boundary: legacy class names consume the same semantic system.
+ * Define aliases on each theme scope so lazy CSS and body portals resolve equally. */
+:root,
+.stage {
+  --p-bg: var(--ds-bg);
+  --p-surface: var(--ds-surface);
+  --p-raised: var(--ds-surface-raised);
+  --p-line: var(--ds-border);
+  --p-line-soft: var(--ds-border);
+  --p-text: var(--ds-text);
+  --p-muted: var(--ds-text-muted);
+  --p-subtle: var(--ds-text-subtle);
+  --p-accent: var(--ds-accent);
+  --p-accent-bg: var(--ds-accent-bg);
+  --p-accent-line: var(--ds-accent-border);
+  --p-lilac: var(--ds-mauve);
+  --p-lilac-bg: var(--ds-mauve-bg);
+  --p-success: var(--ds-success);
+  --p-warning: var(--ds-warning);
+  --p-danger: var(--ds-danger);
+  --p-serif: var(--font-editorial);
+  --p-mono: var(--font-mono);
+  --bg: var(--ds-bg);
+  --panel: var(--ds-surface);
+  --line: var(--ds-border);
+  --muted: var(--ds-text-muted);
+  --accent: var(--ds-accent);
+  --accent-dark: var(--ds-accent-bg);
+  --theme-ink: var(--ds-text);
+  --theme-muted: var(--ds-text-muted);
+  --theme-surface: var(--ds-surface);
+  --theme-inset: var(--ds-surface-inset);
+  --theme-chrome: var(--ds-chrome);
+  --theme-raised: var(--ds-surface-raised);
+  --theme-line: var(--ds-border);
+  --theme-control-line: var(--ds-border-strong);
+  --theme-primary: var(--ds-primary);
+  --theme-on-primary: var(--ds-on-primary);
+  --theme-error-bg: var(--ds-danger-bg);
+  --theme-warning-bg: var(--ds-warning-bg);
+  --theme-success-bg: var(--ds-success-bg);
+  --texture-grid: linear-gradient(var(--ds-grid) 1px, transparent 1px), linear-gradient(90deg, var(--ds-grid) 1px, transparent 1px);
+  --shadow-menu: 0 8px 24px var(--ds-shadow-color);
+  --shadow-dialog: 0 16px 48px var(--ds-shadow-color);
+}
+
+/* Glossy drone-play action, shared by both themes. */
+:root {
+  --ds-preview-backdrop: var(--ds-overlay);
+  --ds-drone-button-text: #ffffff;
+  --ds-drone-button-border: #b5a0c0;
+  --ds-drone-button-start: #594969;
+  --ds-drone-button-middle: #755a85;
+  --ds-drone-button-end: #426476;
+  --ds-drone-button-edge: #ffffff70;
+  --ds-drone-button-depth: #24113f55;
+  --ds-drone-button-shadow: #6945ac33;
+  --ds-drone-shine-start: #ffffff30;
+  --ds-drone-shine-peak: #ffffff65;
+  --ds-drone-shine-end: #ffffff12;
+  --ds-drone-button-edge-hover: #ffffff90;
+  --ds-drone-button-shadow-hover: #6945ac55;
+}
+
+:root[data-theme='light'] {
+  --ds-drone-button-border: #80658e;
+  --ds-drone-button-start: #564462;
+  --ds-drone-button-middle: #71527f;
+  --ds-drone-button-end: #355a6b;
+}

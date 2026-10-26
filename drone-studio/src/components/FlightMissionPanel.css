@@ -1,0 +1,224 @@
+.modal:has(> .flight-mission-panel) {
+  width: min(1060px, calc(100vw - 24px));
+  max-width: none;
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  background: var(--ds-surface-inset);
+}
+
+.flight-mission-panel {
+  color: var(--ds-text);
+  display: grid;
+  gap: 18px;
+  padding-bottom: 8px;
+}
+
+.flight-mission-panel button,
+.flight-mission-panel select,
+.flight-mission-panel input { outline-offset: var(--focus-offset); }
+.flight-mission-panel :is(button, select, input):focus-visible { outline: var(--focus-width) solid var(--ds-focus); }
+.flight-mission-panel button:disabled { cursor: not-allowed; opacity: .48; }
+
+.flight-mission-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 14px;
+  border-bottom: 1px solid var(--ds-border);
+  padding-bottom: 14px;
+}
+.flight-mission-banner strong { font-size: var(--text-lg); font-weight: 550; }
+.flight-mission-tag,
+.flight-mission-card header > span,
+.flight-mission-run-header > div > span {
+  font: 600 var(--text-xs) var(--font-mono);
+  letter-spacing: .08em;
+  color: var(--ds-text-muted);
+}
+.flight-mission-simulation {
+  margin-left: auto;
+  color: var(--ds-accent);
+  border: 1px solid var(--ds-accent-border);
+  background: var(--ds-accent-bg);
+  border-radius: var(--radius-control);
+  padding: 6px 9px;
+  font-size: var(--text-xs);
+}
+button.flight-mission-simulation { cursor: pointer; font-family: inherit; }
+
+.flight-mission-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 6px;
+}
+.flight-mission-steps li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 1;
+  min-width: 0;
+  border-bottom: 2px solid var(--ds-border);
+  color: var(--ds-text-muted);
+  padding: 0 4px 10px;
+  font-size: var(--text-xs);
+}
+.flight-mission-steps li span {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 20px;
+  height: 20px;
+  border: 1px solid var(--ds-border);
+  border-radius: 50%;
+  font-family: var(--font-mono);
+}
+.flight-mission-steps li.is-current { border-color: var(--ds-accent-border); color: var(--ds-text); }
+.flight-mission-steps li.is-current span { background: var(--ds-accent-bg); border-color: var(--ds-accent-border); }
+
+.flight-mission-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.flight-mission-card {
+  min-width: 0;
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-panel);
+  padding: 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.flight-mission-card header { width: 100%; }
+.flight-mission-card h3 { font-size: var(--text-lg); line-height: 1.2; margin: 5px 0 0; font-weight: 550; }
+.flight-mission-phase { width: 100%; margin: 4px 0 0; border-top: 1px solid var(--ds-border); padding-top: 11px; font-size: var(--text-sm); font-weight: 600; }
+.flight-mission-card p { margin: 0; color: var(--ds-text-muted); line-height: 1.42; font-size: var(--text-sm); }
+.flight-mission-card button,
+.flight-mission-run button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--control-md);
+  border: 1px solid var(--ds-border-strong);
+  border-radius: var(--radius-control);
+  padding: 8px 14px;
+  color: var(--ds-text);
+  background: var(--ds-surface-raised);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--text-sm);
+}
+.flight-mission-card button:not(:disabled):hover { border-color: var(--ds-accent-border); background: var(--ds-accent-bg); }
+.flight-mission-card .flight-mission-secondary { background: transparent; min-height: var(--control-sm); }
+.flight-mission-route {
+  width: 100%;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-panel);
+  background-color: var(--ds-surface-inset);
+  background-image: linear-gradient(var(--ds-border) 1px, transparent 1px), linear-gradient(90deg, var(--ds-border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 20px 14px;
+  font-size: var(--text-sm);
+  color: var(--ds-text-muted);
+}
+.flight-mission-route strong { color: var(--ds-text); font-size: var(--text-lg); font-weight: 600; }
+.flight-mission-route i { color: var(--ds-accent); font-style: normal; font-size: var(--text-lg); }
+.flight-mission-field,
+.flight-mission-checks,
+.flight-mission-confirm { font-size: var(--text-sm); color: var(--ds-text-muted); }
+.flight-mission-field { display: grid; gap: 6px; width: 100%; }
+.flight-mission-field > span { display: flex; gap: 6px; }
+.flight-mission-field select { flex: 1; min-width: 0; border: 1px solid var(--ds-border-strong); background: var(--ds-surface); color: var(--ds-text); padding: 8px; border-radius: var(--radius-control); }
+.flight-mission-field button { width: 42px; padding: 8px; }
+.flight-mission-checks { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.flight-mission-checks label,
+.flight-mission-confirm { display: flex; align-items: flex-start; gap: 8px; }
+.flight-mission-panel input[type='checkbox'] { accent-color: var(--ds-accent); width: 16px; height: 16px; margin: 2px 0 0; flex: 0 0 16px; }
+.flight-mission-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.flight-mission-card .flight-mission-ok { color: var(--ds-success); }
+.flight-mission-ok { display: inline-flex; align-items: center; gap: 6px; }
+.flight-mission-card .flight-mission-warning { color: var(--ds-danger); }
+.flight-mission-warning { border-left: 2px solid var(--ds-danger-border); padding-left: 9px; }
+.flight-mission-plan { width: 100%; border-top: 1px solid var(--ds-border); padding-top: 12px; display: grid; gap: 9px; }
+.flight-mission-plan > p:first-child { color: var(--ds-text); display: flex; align-items: center; gap: 6px; }
+.flight-mission-plan ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+.flight-mission-plan li { display: flex; gap: 9px; color: var(--ds-text); font-size: var(--text-sm); }
+.flight-mission-plan li span { font-family: var(--font-mono); color: var(--ds-text-muted); }
+.flight-mission-run {
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--ds-border-strong);
+  border-radius: var(--radius-panel);
+  background: var(--ds-surface-raised);
+  padding: 17px;
+}
+.flight-mission-run-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.flight-mission-run-header > div { display: grid; gap: 5px; }
+.flight-mission-run h3 { margin: 0; font-size: var(--text-lg); font-weight: 550; }
+.flight-mission-run > p { margin: 0; line-height: 1.4; font-size: var(--text-sm); }
+.flight-mission-run .flight-mission-muted { color: var(--ds-text-muted); }
+.flight-mission-run .flight-mission-warning { color: var(--ds-danger); }
+.flight-mission-run .flight-mission-ok { color: var(--ds-success); }
+.flight-mission-state {
+  border: 1px solid var(--ds-border-strong);
+  border-radius: var(--radius-control);
+  padding: 6px 10px;
+  color: var(--ds-text-muted);
+  font: 600 var(--text-xs) var(--font-mono);
+  white-space: nowrap;
+}
+.flight-mission-state:is(.is-active, .is-landing, .is-landed) {
+  border-color: var(--ds-success-border);
+  background: var(--ds-success-bg);
+  color: var(--ds-success);
+}
+.flight-mission-state:is(.is-unknown, .is-rejected, .is-takeover) {
+  border-color: var(--ds-danger-border);
+  background: var(--ds-danger-bg);
+  color: var(--ds-danger);
+}
+.flight-mission-field-checks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+  padding: 12px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+  background: var(--ds-surface);
+}
+.flight-mission-field-checks label { display: flex; align-items: flex-start; gap: 8px; font-size: var(--text-sm); line-height: 1.35; }
+.flight-mission-run-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.flight-mission-run .flight-mission-launch-button:not(:disabled) { background: var(--ds-primary); border-color: var(--ds-primary); color: var(--ds-on-primary); }
+.flight-mission-run .flight-mission-land-button:not(:disabled) { border-color: var(--ds-danger-border); color: var(--ds-danger); }
+.flight-mission-recovery {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  border: 1px solid var(--ds-danger-border);
+  border-radius: var(--radius-control);
+  background: var(--ds-danger-bg);
+  padding: 12px;
+}
+.flight-mission-recovery strong { font-size: var(--text-sm); }
+.flight-mission-recovery p { margin: 0; line-height: 1.4; font-size: var(--text-sm); }
+.flight-mission-recovery .flight-mission-field-checks { width: 100%; }
+.flight-mission-radio-link { display: inline-flex; align-items: center; gap: 4px; color: var(--ds-accent); font-size: var(--text-xs); text-decoration: underline; text-underline-offset: 2px; justify-self: start; }
+.flight-mission-radio-link:focus-visible { outline: var(--focus-width) solid var(--ds-focus); outline-offset: var(--focus-offset); }
+.flight-mission-error { margin: 0; color: var(--ds-danger); background: var(--ds-danger-bg); border: 1px solid var(--ds-danger-border); border-radius: var(--radius-control); padding: 10px; }
+
+@media (max-width: 760px) {
+  .flight-mission-grid { grid-template-columns: 1fr; }
+  .flight-mission-steps { overflow-x: auto; }
+  .flight-mission-steps li { min-width: 110px; }
+  .flight-mission-simulation { margin-left: 0; }
+  .flight-mission-run-header { align-items: stretch; flex-direction: column; }
+  .flight-mission-field-checks { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,21 @@
+.zorro-stop-test { border: 1px solid var(--ds-border); border-radius: var(--radius-panel); padding: var(--space-5); background: var(--ds-surface); display: grid; gap: var(--space-4); }
+.zorro-stop-test p { margin: 0; }
+.zorro-stop-header, .zorro-stop-assignment, .zorro-stop-setup, .zorro-stop-controls { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3); }
+.zorro-stop-header strong { font-size: var(--text-base); }
+.zorro-stop-duration { font: var(--weight-strong) var(--text-xs)/1.4 var(--font-mono); letter-spacing: .08em; color: var(--ds-text-muted); }
+.zorro-stop-assignment, .zorro-stop-setup { border-top: 1px solid var(--ds-border); padding-top: var(--space-3); }
+.zorro-stop-test button { border: 1px solid var(--ds-border-strong); border-radius: var(--radius-control); padding: 9px 14px; cursor: pointer; background: transparent; color: inherit; }
+.zorro-stop-test button:disabled { opacity: .45; cursor: not-allowed; }
+.zorro-stop-test button:focus-visible, .zorro-stop-test input:focus-visible { outline: var(--focus-width) solid var(--ds-focus); outline-offset: var(--focus-offset); }
+.zorro-stop-controls > button:first-child { background: var(--ds-primary); color: var(--ds-on-primary); border-color: var(--ds-primary); }
+.zorro-stop-controls > button:last-child:not(:disabled) { border-color: var(--ds-danger-border); color: var(--ds-danger); }
+.zorro-stop-controls output { font: var(--weight-strong) var(--text-lg)/1 var(--font-mono); min-width: 110px; }
+.zorro-stop-test fieldset { border: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2) var(--space-4); }
+.zorro-stop-test legend { font-weight: 600; margin-bottom: var(--space-2); }
+.zorro-stop-test label { display: flex; align-items: center; gap: 8px; font-size: var(--text-sm); }
+.zorro-stop-test details { border-top: 1px solid var(--ds-border); padding-top: var(--space-3); color: var(--ds-text-muted); font-size: var(--text-sm); }
+.zorro-stop-test details p { margin-top: var(--space-2); }
+.zorro-stop-warning { border-left: 3px solid var(--ds-danger-border); padding-left: var(--space-3); color: var(--ds-danger); }
+.zorro-stop-observation { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.zorro-stop-observation button[aria-pressed="true"] { background: var(--ds-feature); color: var(--ds-on-feature); }
+@media (max-width: 680px) { .zorro-stop-test fieldset { grid-template-columns: 1fr; } }

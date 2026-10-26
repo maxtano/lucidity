@@ -1,0 +1,43 @@
+@import '../design-system/tokens.css';
+@import '../design-system/primitives.css';
+
+/* Appearance preference is on html; body portals and lazy workspaces inherit it. */
+.theme-control { margin-top: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--ds-border); color: var(--ds-text); font-size: var(--text-sm); }
+.theme-toggle { display: flex; align-items: center; gap: var(--space-3); width: 100%; min-width: var(--control-lg); min-height: var(--control-lg); padding: var(--space-2); border: 1px solid transparent; border-radius: var(--radius-control); color: var(--ds-text); background: transparent; text-align: left; cursor: pointer; }
+.theme-toggle:hover { background: var(--ds-surface-raised); border-color: var(--ds-border); }
+.theme-toggle > svg { flex-shrink: 0; color: var(--ds-text-muted); }
+.theme-control-label { flex: 1; white-space: nowrap; }
+.theme-toggle-track { display: flex; align-items: center; flex-shrink: 0; width: 32px; height: 20px; padding: 3px; border-radius: 12px; background: var(--ds-border-strong); }
+.theme-toggle-track > span { width: 14px; height: 14px; border-radius: 50%; background: var(--ds-surface); transition: transform var(--motion-fast) var(--motion-ease); }
+.theme-toggle[aria-checked='true'] .theme-toggle-track { background: var(--ds-primary); }
+.theme-toggle[aria-checked='true'] .theme-toggle-track > span { transform: translateX(12px); background: var(--ds-on-primary); }
+.theme-system { display: flex; align-items: center; gap: var(--space-2); min-height: var(--control-sm); width: 100%; padding: 4px 8px; color: var(--ds-text-muted); font-size: var(--text-xs); text-align: left; }
+.theme-system:hover { color: var(--ds-text); }
+.theme-system[aria-pressed='true'] { color: var(--ds-accent); }
+.navigation-collapsed:not(.navigation-peeking) .theme-control-label,
+.navigation-collapsed:not(.navigation-peeking) .theme-toggle-track,
+.navigation-collapsed:not(.navigation-peeking) .theme-system { display: none; }
+.navigation-collapsed:not(.navigation-peeking) .theme-toggle { justify-content: center; padding-inline: 0; }
+@media (prefers-reduced-motion: reduce) { .theme-toggle-track > span { transition: none; } }
+/* Actual 3D canvas chrome stays readable against a night-sky rendering in either theme. */
+.stage {
+  color-scheme: dark;
+  --ds-bg: var(--ds-canvas-bg);
+  --ds-surface: var(--ds-canvas-surface);
+  --ds-surface-inset: var(--ds-canvas-bg);
+  --ds-surface-raised: var(--ds-canvas-surface);
+  --ds-text: var(--ds-canvas-text);
+  --ds-text-muted: var(--ds-canvas-muted);
+  --ds-text-subtle: var(--ds-canvas-muted);
+  --ds-border: var(--ds-canvas-border);
+  --ds-border-strong: var(--ds-canvas-border);
+  --ds-accent: var(--ds-canvas-accent);
+  --p-text: var(--ds-canvas-text);
+  --p-muted: var(--ds-canvas-muted);
+  --p-accent: var(--ds-canvas-accent);
+  --bg: var(--ds-canvas-bg);
+  --panel: var(--ds-canvas-surface);
+  --line: var(--ds-canvas-border);
+  --muted: var(--ds-canvas-muted);
+  --accent: var(--ds-canvas-accent);
+}

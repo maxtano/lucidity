@@ -1,0 +1,53 @@
+import {
+  Activity,
+  Battery,
+  CircuitBoard,
+  Compass,
+  Cpu,
+  Gauge,
+  Lightbulb,
+  Map,
+  Radio,
+  RadioTower,
+  Settings2,
+  ShieldCheck,
+  SlidersHorizontal,
+  ToggleLeft,
+  Usb,
+  Video,
+  Wind,
+  Wrench,
+} from 'lucide-react';
+import type { ToolId } from './catalog';
+
+export const toolSections: { id: string; title: string; tools: ToolId[] }[] = [
+  { id: 'connect', title: 'Connect & update', tools: ['setup', 'radios', 'firmware'] },
+  {
+    id: 'configure',
+    title: 'Configure',
+    tools: ['parameters', 'airframe', 'ports', 'receiver', 'modes', 'power', 'sensors'],
+  },
+  { id: 'test', title: 'Test & tune', tools: ['drone-check', 'diagnostics', 'motors', 'esc', 'tuning', 'safety'] },
+  { id: 'extend', title: 'Extend & inspect', tools: ['osd', 'lights', 'missions'] },
+];
+export const toolIcons = {
+  'drone-check': ShieldCheck,
+  setup: Usb,
+  parameters: SlidersHorizontal,
+  airframe: Wrench,
+  ports: CircuitBoard,
+  receiver: Radio,
+  modes: ToggleLeft,
+  power: Battery,
+  sensors: Compass,
+  motors: Wind,
+  esc: Cpu,
+  tuning: Gauge,
+  safety: ShieldCheck,
+  firmware: Cpu,
+  radios: RadioTower,
+  osd: Video,
+  lights: Lightbulb,
+  missions: Map,
+  diagnostics: Activity,
+} satisfies Record<ToolId, typeof Settings2>;

@@ -1,0 +1,271 @@
+.modal:has(> .camera-move-inspection) {
+  width: min(980px, 95vw);
+  max-width: 980px;
+  max-height: calc(100dvh - 48px);
+}
+.camera-move-inspection {
+  min-width: 0;
+  color: var(--ds-text);
+  font-size: var(--text-xs);
+}
+.camera-move-intro {
+  margin: -3px 0 15px;
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.7;
+}
+.camera-move-source {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px 12px;
+  padding: 9px 11px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-panel);
+  background: var(--ds-surface-inset);
+  margin-bottom: 15px;
+}
+.camera-move-source > strong {
+  color: var(--ds-text);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.camera-move-source > span {
+  color: var(--ds-text-muted);
+  font: var(--text-xs) var(--font-mono);
+}
+.camera-move-form {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ds-border);
+}
+.camera-move-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.75fr;
+  gap: 12px;
+  max-width: 540px;
+}
+.camera-move-fields > label {
+  min-width: 0;
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+}
+.camera-move-fields input {
+  width: 100%;
+  min-width: 0;
+  padding: 8px;
+  margin-top: 6px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+  color: var(--ds-text);
+  background: var(--ds-surface-inset);
+  font: var(--text-xs) var(--font-mono);
+}
+.camera-move-input-help {
+  margin: 9px 0 0;
+  color: var(--ds-text-subtle);
+  font-size: var(--text-xs);
+  line-height: 1.65;
+}
+.camera-move-run-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 13px;
+}
+.camera-move-run-row > button,
+.camera-move-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+}
+.camera-move-run-row > .camera-move-run {
+  color: var(--ds-text);
+  border-color: var(--ds-border);
+  background: var(--ds-surface-raised);
+}
+.camera-move-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ds-text-muted);
+  font: var(--text-xs) var(--font-mono);
+}
+.camera-move-progress progress {
+  width: 85px;
+  height: 4px;
+  accent-color: var(--ds-primary);
+}
+.camera-move-notice,
+.camera-move-error,
+.camera-move-stale {
+  margin: 13px 0 0;
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+}
+.camera-move-error,
+.camera-move-stale {
+  color: var(--ds-warning);
+  border-left: 2px solid var(--ds-border);
+  padding-left: 9px;
+}
+.camera-move-result-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 15px;
+  margin: 19px 0 13px;
+}
+.camera-move-result-heading h3 {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--ds-text);
+  overflow-wrap: anywhere;
+}
+.camera-move-result-heading p {
+  color: var(--ds-text-muted);
+  font: var(--text-xs)/1.7 var(--font-mono);
+  margin: 6px 0 0;
+}
+.camera-move-result-heading > span {
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-panel);
+  color: var(--ds-text-muted);
+  padding: 4px 6px;
+  font-size: var(--text-xs);
+}
+.camera-move-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin: 0 0 14px;
+}
+.camera-move-summary > div {
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-panel);
+  padding: 11px 12px;
+  background: var(--ds-surface-raised);
+}
+.camera-move-summary dt {
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+}
+.camera-move-summary dd {
+  margin: 7px 0 0;
+  color: var(--ds-text);
+  font: 17px var(--font-mono);
+}
+.camera-move-summary small {
+  display: block;
+  margin-top: 5px;
+  font-size: var(--text-xs);
+  color: var(--ds-text-subtle);
+}
+.camera-move-table-wrap {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-panel);
+}
+.camera-move-inspection table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+}
+.camera-move-inspection th {
+  padding: 10px 9px;
+  color: var(--ds-text-muted);
+  background: var(--ds-surface-inset);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  text-align: left;
+  white-space: nowrap;
+}
+.camera-move-inspection td {
+  border-top: 1px solid var(--ds-border);
+  padding: 9px;
+  color: var(--ds-text);
+  font: var(--text-xs) var(--font-mono);
+  white-space: nowrap;
+}
+.camera-move-inspection td.camera-move-lit {
+  color: var(--ds-text);
+}
+.camera-move-inspection td > button {
+  padding: 5px 7px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+  color: var(--ds-text);
+  background: var(--ds-surface-raised);
+  font:
+    var(--text-xs) var(--font-sans);
+  min-height: var(--control-sm);
+}
+.camera-move-metadata {
+  margin-top: 12px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-panel);
+  padding: 10px 11px;
+}
+.camera-move-metadata > summary {
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  cursor: pointer;
+}
+.camera-move-metadata > p {
+  color: var(--ds-text-muted);
+  font: var(--text-xs)/1.65 var(--font-mono);
+  margin: 11px 0;
+  overflow-wrap: anywhere;
+}
+.camera-move-metadata table {
+  min-width: 920px;
+}
+.camera-move-limitations {
+  color: var(--ds-text-subtle);
+  font-size: var(--text-xs);
+  line-height: 1.7;
+  margin: 12px 0 0;
+  padding-left: 15px;
+}
+.camera-move-footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 17px;
+}
+.camera-move-footer > p {
+  margin: 0;
+  max-width: 650px;
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.7;
+}
+.camera-move-close {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .camera-move-fields {
+    gap: 8px;
+  }
+  .camera-move-summary {
+    gap: 6px;
+  }
+  .camera-move-summary > div {
+    padding: 9px 8px;
+  }
+  .camera-move-summary dt {
+    font-size: var(--text-xs);
+  }
+}

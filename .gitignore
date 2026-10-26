@@ -1,0 +1,40 @@
+# Dependencies and generated output
+node_modules/
+dist/
+dist-demo/
+coverage/
+*.tsbuildinfo
+__pycache__/
+*.py[cod]
+.DS_Store
+*.log
+
+# Credentials and machine-local agent/editor configuration
+.env
+.env.*
+!.env.example
+.claude/
+.codex/
+.idea/
+.vscode/
+*.pem
+*.key
+*.p12
+*.pfx
+.npmrc
+
+# Device data, backups, local experiments and unreviewed captures
+artifacts/
+workbench-files/
+/direction-lab/data/
+/direction-lab/preview.png
+/direction-lab/plugins/lucidity-lab/.mcp.json
+/drone-studio/docs/esc-*.json
+/drone-studio/docs/screenshots/
+/drone-studio/docs/INPUT.md
+/research/
+/result.json
+/sites/
+
+# Imported model and derivatives: source/license must be established before sharing
+/cad/sma-standoff-mount/

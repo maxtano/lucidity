@@ -1,0 +1,137 @@
+.proposal-target-controls {
+  position: absolute;
+  left: 17px;
+  top: 80px;
+  z-index: 5;
+  width: min(308px, calc(100% - 34px));
+  max-height: calc(100% - 160px);
+  overflow: auto;
+  padding: 10px 11px;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-panel);
+  background: var(--ds-surface-inset);
+  box-shadow: 0 5px 24px var(--ds-shadow-color);
+  color: var(--ds-text);
+}
+.proposal-target-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+}
+.proposal-target-heading strong {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+  font-weight: 500;
+}
+.proposal-target-heading i {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--ds-border-strong);
+  border-radius: var(--radius-panel);
+}
+.proposal-target-controls button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 5px 6px;
+  color: var(--ds-text);
+  font-size: var(--text-sm);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+  white-space: nowrap;
+  min-height: var(--control-sm);
+}
+.proposal-target-controls button[aria-pressed='true'] {
+  color: var(--ds-selection-text);
+  background: var(--ds-selection);
+  border-color: var(--ds-primary);
+  --ds-text: var(--ds-selection-text);
+  --ds-text-muted: var(--ds-selection-text);
+  --ds-text-subtle: var(--ds-selection-text);
+}
+.proposal-target-controls button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.proposal-target-controls p {
+  margin: 5px 0;
+  font-size: var(--text-base);
+  line-height: 1.55;
+  color: var(--ds-text-muted);
+}
+.proposal-target-controls .proposal-target-membership {
+  color: var(--ds-text);
+  font: var(--text-xs)/1.65 var(--font-mono);
+}
+.proposal-target-membership b {
+  font-weight: 400;
+  color: var(--ds-text);
+}
+.proposal-target-controls .proposal-target-operation-count {
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+}
+.proposal-target-scene {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 9px;
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+.proposal-target-scene select {
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-control);
+  padding: 5px 20px 5px 7px;
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  font-size: var(--text-xs);
+  text-overflow: ellipsis;
+}
+.proposal-target-controls .proposal-target-scope {
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+}
+.proposal-target-controls .proposal-target-frame {
+  padding: 6px 7px;
+  border-left: 2px solid var(--ds-border);
+  background: var(--ds-surface-raised);
+  color: var(--ds-text-muted);
+  font-size: var(--text-xs);
+}
+.proposal-target-frame strong {
+  color: var(--ds-text);
+  font-weight: 500;
+}
+.proposal-target-controls details {
+  margin-top: 7px;
+  font-size: var(--text-xs);
+  color: var(--ds-text-muted);
+}
+.proposal-target-controls summary {
+  cursor: pointer;
+}
+.proposal-target-controls details p {
+  font-size: var(--text-base);
+}
+.proposal-target-controls button:focus-visible,
+.proposal-target-controls select:focus-visible,
+.proposal-target-controls summary:focus-visible {
+  outline: var(--focus-width) solid var(--ds-focus);
+  outline-offset: var(--focus-offset);
+}
+@media (max-width: 390px) {
+  .proposal-target-heading {
+    flex-wrap: wrap;
+  }
+}

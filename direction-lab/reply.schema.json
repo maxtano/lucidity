@@ -1,0 +1,1 @@
+{"type":"object","properties":{"message":{"type":"string"},"action":{"type":"string","enum":["none","propose"]}},"required":["message","action"],"additionalProperties":false}

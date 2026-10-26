@@ -1,0 +1,45 @@
+.radio-setup { max-width: 940px; }
+.radio-intro { display: flex; align-items: flex-start; gap: var(--space-4); }
+.radio-intro > svg { flex: none; color: var(--ds-accent); margin-top: 2px; }
+.radio-intro h2, .radio-monitor h2 { margin: 0 0 var(--space-2); }
+.radio-intro p, .radio-monitor p, .radio-next p { margin: 0; color: var(--ds-text-muted); line-height: var(--leading-body); }
+.radio-monitor-top, .radio-actions { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; }
+.radio-monitor-top { padding-bottom: var(--space-5); border-bottom: 1px solid var(--ds-border); }
+.radio-monitor-top h2 { margin-top: var(--space-1); }
+.radio-live { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--ds-text-muted); font: 600 var(--text-sm) var(--font-mono); }
+.radio-live.is-live { color: var(--ds-success); }
+.radio-actions { justify-content: flex-start; margin: var(--space-5) 0; }
+.radio-channels { display: grid; gap: var(--space-2); }
+.radio-channel { display: grid; grid-template-columns: minmax(105px, 150px) minmax(80px, 1fr) 55px; align-items: center; gap: var(--space-4); min-height: 34px; }
+.radio-channel-label { display: flex; justify-content: space-between; gap: var(--space-2); }
+.radio-channel-label strong { font-weight: var(--weight-medium); }
+.radio-channel-label span, .radio-channel output { color: var(--ds-text-muted); font-family: var(--font-mono); font-size: var(--text-sm); }
+.radio-channel output { text-align: right; }
+.radio-channel-track { position: relative; height: 7px; border: 1px solid var(--ds-border); background: var(--ds-surface-inset); border-radius: var(--radius-control); }
+.radio-channel-track::before { content: ''; position: absolute; left: 50%; top: -4px; bottom: -4px; width: 1px; background: var(--ds-border-strong); }
+.radio-channel-track span { position: absolute; top: -5px; width: 4px; height: 15px; background: var(--ds-feature); border-radius: var(--radius-control); transform: translateX(-50%); transition: left var(--motion-fast) linear; }
+.radio-channel-track span.missing { display: none; }
+.radio-hint { margin-top: var(--space-4) !important; color: var(--ds-text-muted); font-size: var(--text-sm); }
+.radio-arming-status { border: 1px solid var(--ds-border); border-radius: var(--radius-panel); background: var(--ds-surface-inset); padding: var(--space-4); margin: var(--space-5) 0; }
+.radio-arming-heading { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
+.radio-arming-heading > span, .radio-arming-facts span, .radio-arming-message > span { color: var(--ds-text-muted); font-size: var(--text-xs); }
+.radio-arming-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
+.radio-arming-facts > div { display: grid; gap: var(--space-1); padding: var(--space-2) var(--space-3); border: 1px solid var(--ds-border); border-radius: var(--radius-control); background: var(--ds-surface-raised); }
+.radio-arming-facts strong { font: 600 var(--text-sm) var(--font-mono); overflow-wrap: anywhere; }
+.radio-arming-message { margin-top: var(--space-3); border-left: 2px solid var(--ds-accent); padding-left: var(--space-3); }
+.radio-arming-message p { color: var(--ds-text); margin-top: var(--space-1); font-weight: var(--weight-medium); }
+.radio-arming-status > .radio-hint { margin-bottom: 0; }
+.radio-show-all { border: 0; background: none; color: var(--ds-accent); padding: var(--space-4) 0 0; font-weight: var(--weight-strong); cursor: pointer; }
+.radio-extra { border-top: 1px solid var(--ds-border); margin-top: var(--space-4); padding-top: var(--space-4); }
+.radio-modes { border-top: 1px solid var(--ds-border); margin-top: var(--space-5); padding-top: var(--space-5); }
+.radio-modes-heading { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-3); }
+.radio-modes-heading span { color: var(--ds-text-muted); font: var(--text-sm) var(--font-mono); }
+.radio-mode-slots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
+.radio-mode-slot { display: grid; gap: var(--space-1); padding: var(--space-3); border: 1px solid var(--ds-border); border-radius: var(--radius-control); background: var(--ds-surface-inset); }
+.radio-mode-slot.is-selected { border-color: var(--ds-accent-border); background: var(--ds-accent-bg); }
+.radio-mode-slot-number, .radio-mode-slot > span:nth-of-type(2) { color: var(--ds-text-muted); font: var(--text-sm) var(--font-mono); }
+.radio-mode-slot strong { font-weight: var(--weight-strong); }
+.radio-mode-slot-unread { color: var(--ds-text-subtle); font-size: var(--text-xs); }
+.radio-next strong { display: block; margin-bottom: var(--space-2); }
+.radio-next p + p { margin-top: var(--space-2); }
+@media (max-width: 560px) { .radio-channel { grid-template-columns: 88px minmax(60px, 1fr) 45px; gap: var(--space-2); } .radio-channel-label { display: block; } .radio-channel-label span { display: block; } .radio-mode-slots { grid-template-columns: repeat(2, minmax(0, 1fr)); } .radio-arming-facts { grid-template-columns: 1fr; } }

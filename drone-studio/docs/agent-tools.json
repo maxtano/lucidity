@@ -1,0 +1,268 @@
+{
+  "name": "lucidity-design-tools",
+  "version": "0.4.0",
+  "transport": "local-cli-stdout",
+  "entrypoint": "npm run --silent agent --",
+  "aircraftAccess": false,
+  "canonicalSchemas": "src/core/model.ts and src/core/commands.ts",
+  "tools": [
+    {
+      "name": "read_design",
+      "arguments": "--project <path>",
+      "description": "Read and validate a design; output a versioned portable bundle."
+    },
+    {
+      "name": "propose_edit",
+      "arguments": "--project <path> --brief <text>",
+      "description": "Use the local deterministic brief interpreter to produce a revision-bound proposal. Does not apply it."
+    },
+    {
+      "name": "apply_operations",
+      "arguments": "--project <path> --expected-revision <integer> (--command <json> | --commands-file <path>)",
+      "description": "Validate and atomically apply operations to an in-memory copy. Output the new bundle. Source files remain unchanged."
+    },
+    {
+      "name": "review_design",
+      "arguments": "--project <path> --validate",
+      "description": "Attach analytic bounds for static targets or explicitly incomplete sampled motion review for animated positions. Always flightReady=false."
+    },
+    {
+      "name": "export_preview_csv",
+      "arguments": "--project <path> --csv",
+      "description": "Output sampled simulation trajectories at 0.5-second intervals, including the exact endpoint. Maximum 350,000 rows."
+    }
+  ],
+  "operations": {
+    "set_fleet": {
+      "type": "set_fleet",
+      "count": "integer 1..100000"
+    },
+    "set_tempo": {
+      "type": "set_tempo",
+      "bpm": "number 40..220"
+    },
+    "rename": {
+      "type": "rename",
+      "name": "nonempty string, max 80"
+    },
+    "replace_cues": {
+      "type": "replace_cues",
+      "cues": "1..512 valid Cue objects with unique IDs"
+    },
+    "add_cue": {
+      "type": "add_cue",
+      "cue": "valid Cue object"
+    },
+    "update_cue": {
+      "type": "update_cue",
+      "id": "existing cue ID",
+      "patch": "partial Cue excluding id"
+    },
+    "remove_cue": {
+      "type": "remove_cue",
+      "id": "existing cue ID; cannot remove the last cue"
+    },
+    "move_cue": {
+      "type": "move_cue",
+      "id": "existing cue ID",
+      "direction": "up | down"
+    },
+    "edit_drones": {
+      "type": "edit_drones",
+      "cueId": "existing cue ID",
+      "ids": "one or more stable drone IDs, 1..100000",
+      "patch": "partial DroneEdit"
+    },
+    "transform_drones": {
+      "type": "transform_drones",
+      "cueId": "existing cue ID",
+      "ids": "one or more stable drone IDs; each keeps its own geometry",
+      "translation": "[east,north,up] finite meter deltas",
+      "pivot": "required [east,north,up] meters when scale or rotation is present; omit for translation alone",
+      "scale": "optional finite [east,north,up] multipliers; negative reflects, zero collapses an axis",
+      "rotation": "optional {axis:[east,north,up], angleDegrees:number}; finite nonzero axis normalized; right-hand positive angle",
+      "order": "pivot + rotation(scale * (position - pivot)) + translation; pivot is fixed and explicit",
+      "scope": "base_and_keys | key_at_time",
+      "time": "required scene-local seconds for key_at_time; omit for base_and_keys"
+    },
+    "set_keyframe": {
+      "type": "set_keyframe",
+      "cueId": "existing cue ID",
+      "ids": "one or more stable drone IDs",
+      "keyframe": "scene-local time plus any animation channels; merges with a key at that time"
+    },
+    "move_keyframe": {
+      "type": "move_keyframe",
+      "cueId": "existing cue ID",
+      "droneId": "stable drone ID",
+      "from": "existing scene-local key time",
+      "to": "new scene-local time; rejects timestamp collisions"
+    },
+    "remove_keyframe": {
+      "type": "remove_keyframe",
+      "cueId": "existing cue ID",
+      "ids": "one or more stable drone IDs",
+      "time": "scene-local key time"
+    },
+    "reset_drones": {
+      "type": "reset_drones",
+      "cueId": "existing cue ID",
+      "ids": "remove all explicit edits and keys for these IDs; return to seed values"
+    },
+    "retime_cue": {
+      "type": "retime_cue",
+      "id": "existing cue ID",
+      "speed": "positive playback speed multiplier; new duration = duration / speed",
+      "scaleKeyframes": "optional boolean, default true",
+      "scaleTransition": "optional boolean, default true"
+    },
+    "transition_to_beats": {
+      "type": "transition_to_beats",
+      "id": "existing cue ID",
+      "beats": "nonnegative number; seconds = beats * 60 / bpm, must fit scene"
+    }
+  },
+  "cue": {
+    "id": "unique nonempty string, max 100",
+    "name": "nonempty string, max 60",
+    "shape": ["orbit", "sphere", "helix", "heart", "wave", "bloom", "grid", "custom"],
+    "palette": ["aurora", "moonlight", "ember", "rose", "ocean"],
+    "duration": "seconds, 1/30..1800, subject to 1800-second project total",
+    "transition": "seconds, 0..duration",
+    "scale": "positive finite seed scale in meters",
+    "altitude": "finite ENU z meters; physical bounds reviewed separately",
+    "droneEdits": "map of stable IDs to DroneEdit",
+    "metadata": "optional arbitrary JSON metadata",
+    "transitionEasing": "optional smooth | linear | ease-in | ease-out; default smooth"
+  },
+  "example": {
+    "baseRevision": 0,
+    "operations": [
+      {
+        "type": "set_fleet",
+        "count": 1200
+      },
+      {
+        "type": "update_cue",
+        "id": "in-orbit",
+        "patch": {
+          "palette": "ember",
+          "transition": 20
+        }
+      }
+    ]
+  },
+  "droneEdit": {
+    "position": "optional [east,north,up] meters",
+    "color": "optional #RRGGBB",
+    "brightness": "optional 0..1",
+    "flash": "optional {hz: 0..100, duty: 0..1, phase: finite cycles}; hz=0 is steady",
+    "keyframes": "optional up to 2048 unique scene-local times, each with independent position/color/brightness/flash channels and linear|smooth|hold easing"
+  },
+  "semantics": {
+    "inactiveIds": "retained when fleet count decreases",
+    "firstAndLastKeys": "extend to scene boundaries",
+    "sceneTrim": "retains later keys as dormant data",
+    "flashClock": "global show seconds",
+    "newBundleFormat": 3,
+    "engineVersion": "0.4.0"
+  },
+  "modelHarness": {
+    "transport": "same-origin localhost NDJSON",
+    "status": "GET /api/agent/status",
+    "run": "POST /api/agent/run",
+    "documentation": "docs/AGENT_HARNESS.md",
+    "canonicalToolDefinitions": "src/agent/tools.ts",
+    "orchestrationToolCount": 15,
+    "audienceContext": {
+      "capture": "Optional request.viewer is fixed at submission: current {snapshot,aspect} plus up to 12 savedViews {id,name,snapshot} from the main studio viewer",
+      "snapshot": "pose {east,north,eyeHeight,yaw,pitch,fov} and venue {east,north,heading}; canonical finite ENU coordinates/degrees; fov is vertical",
+      "aspect": "finite >0 and <=100; captured current viewport aspect also used for saved views",
+      "discovery": "inspect_show returns current viewpoint and saved view IDs; names are untrusted data"
+    },
+    "inspect_viewpoint": {
+      "surface": "model harness only; not a legacy CLI command",
+      "arguments": {
+        "time": "show-global seconds within the current private draft",
+        "viewId": "empty string for captured current view, or an ID discovered from inspect_show saved views",
+        "limit": "integer 1..32 representative rows; totals still cover every active drone"
+      },
+      "readOnly": true,
+      "result": "snapshot/aspect,scene/localTime/blend,stageBearing,totals {droneCount,front,right,rear,left,overhead,inFrustum,lightsOn,inFrustumLightsOn}, representative drones {id,position,color,bearing,elevation,visible,lightsOn}, semantics/limitations",
+      "geometry": "quadrants relative to viewer-to-stage-center bearing; overhead >=70 degrees overlaps; visible means camera frustum only with forward depth 0.1..5000 meters",
+      "lighting": "shared evaluator including incoming blend, keyed motion, brightness, flash and beat; lightsOn means any evaluated RGB component >0",
+      "budget": "reject relevant active key work >5000000 before evaluation; estimate keyCount*(8+ceil(log2(max(1,keyCount)))) per edited active drone in current/previous scenes; sample_frame shares this check",
+      "limitations": "No screenshot/computer vision, rendered-pixel measurement, occlusion, venue obstruction, photometric visibility, artistic-quality or flight qualification; no camera/bookmark/project mutation or review invalidation"
+    },
+    "compare_viewpoints": {
+      "surface": "model harness only; not a legacy CLI command",
+      "arguments": {
+        "start": "finite show-global seconds >=0; must precede end",
+        "end": "finite show-global seconds within the current private draft",
+        "samples": "integer 2..12, evenly spaced including exact endpoints",
+        "viewIds": "1..4 unique strings max80; empty string selects captured current view, other IDs discovered through inspect_show"
+      },
+      "readOnly": true,
+      "result": "projectId,revision,times,views [{id,name,snapshot,aspect,samples:[{time,totals}],summary:{minInFrameLights,maxInFrameLights,meanInFrameLights,minAt,maxAt}}],limitations; no individual-drone rows",
+      "summary": "minimum, maximum and arithmetic sample mean of inFrustumLightsOn; earliest sample wins ties; all views use captured current aspect",
+      "budget": "fleet*sampleCount*viewCount <=2000000, total weighted active key work across every view/time <=20000000, existing per-frame <=5000000; ordinary tool-output/context limits also apply",
+      "cancellation": "copied draft/views; preflight then asynchronous yielding/checks between frame inspections; no partial result or late proposal after cancellation",
+      "trace": "projectId/revision,time endpoints/exact sample times,view IDs/names/snapshots/aspects/summaries and limitations; per-time rows omitted",
+      "limitations": "Sparse samples can miss motion/flashes; no continuous coverage, screenshots, occlusion, perceived visibility, artistic-quality or flight qualification; no camera/bookmark/project mutation or review invalidation"
+    },
+    "inspect_camera_move": {
+      "surface": "model harness only; not a legacy CLI command or live camera controller",
+      "arguments": {
+        "fromViewId": "empty string for captured current view, or a saved ID discovered through inspect_show",
+        "toViewId": "empty string for captured current view, or a saved ID discovered through inspect_show; endpoint venue placements must match exactly",
+        "duration": "finite camera duration 1..30 seconds",
+        "easing": "linear | smooth; shortest yaw arc, positive 180 degree tie",
+        "start": "finite show-global seconds >=0; may equal end to hold the show while the camera moves",
+        "end": "finite show-global seconds >=start within the private draft",
+        "samples": "integer 2..12; evenly mapped camera/show times including exact endpoints"
+      },
+      "readOnly": true,
+      "result": "fromViewId,toViewId,projectId,revision,request:{plan:{from,to,duration,easing},aspect,fromName,toName,start,end,samples},samples:[{cameraTime,showTime,snapshot,totals}],summary:{minInFrameLights,maxInFrameLights,meanInFrameLights,minIndex,maxIndex},limitations; no individual-drone rows",
+      "summary": "sample minimum, maximum and arithmetic mean of inFrustumLightsOn; earliest sample wins ties; current captured aspect applies along the whole path",
+      "budget": "fleet*sampleCount <=2000000, aggregate weighted active key work <=20000000, per-frame <=5000000; ordinary tool-output/context limits also apply",
+      "cancellation": "owned draft/endpoints; all work preflighted before sampling, with event-loop yielding and abort checks between samples; no partial or late success after cancellation",
+      "trace": "standard project/base/draft/operation-count provenance, resolved endpoint IDs, exact owned request with captured poses/aspect, cameraTime/showTime mapping, summary and limitations; sampled snapshots/totals omitted",
+      "limitations": "Geometric and evaluated-light counts only. Sparse samples may miss movement or flashes; no vision, rendered pixels, occlusion, continuous coverage, photometric or artistic qualification, aircraft access or flight certification. No live camera/show playback, authored camera track, project/bookmark mutation, or review invalidation."
+    },
+    "inspect_audience_selection": {
+      "surface": "model harness only; exact read-only audience filtering, not a new mutation tool",
+      "arguments": {
+        "time": "finite show-global seconds within the private draft",
+        "viewId": "empty string for captured current viewpoint, or saved ID discovered through inspect_show; current captured aspect applies to either",
+        "region": "in_frame | front | right | rear | left | overhead",
+        "lights": "any | on | off; on means any evaluated RGB channel is positive after incoming blend, keys, flash and beat",
+        "scope": "fleet | selection; selection intersects active fleet with the COMPLETE original artist selection; dormant IDs excluded, empty scope remains empty",
+        "offset": "nonnegative integer offset into the sorted complete matching set",
+        "limit": "integer 1..128; limits the returned ID page, never the exact match count"
+      },
+      "readOnly": true,
+      "result": "projectId,revision,stagedOperations,viewId,viewName,request:{time,snapshot,aspect,region,lights,scope},cueId,localTime,blend,matchedCount,consideredCount,droneCount,offset,limit,nextOffset,hasMore,ids,targetId,limitations; stagedOperations is captured before asynchronous work; complete scopeIds and off-page matching IDs are never returned; targetId owns all matches, null when matchedCount=0",
+      "geometry": "in_frame uses perspective frustum; quadrants use viewer-to-stage-center bearing regardless of camera yaw; overhead>=70 degrees overlaps quadrants",
+      "pagination": "Read all pages until hasMore=false using identical criteria, projectId, revision and stagedOperations. Successive private edit batches retain revision base+1, so revision alone cannot establish identical draft state. Restart paging after edits or a stagedOperations change. The page is exact, not a representative sample.",
+      "editing": "Use stage_audience_operation with targetId and one ids-omitted per-drone command to edit the complete matching set. Or gather explicit page IDs for existing commands. Original artist selection stays unchanged; successful staging expires all targets.",
+      "trace": "same bounded criteria/captured context, exact counts and page IDs, plus project/base/draft/operation-count provenance; no proposal navigation moments are generated",
+      "cancellation": "bounded full-fleet evaluation with shared per-frame key-work guard, owned inputs and abort checks during asynchronous classification; ordinary tool-output/context budgets apply",
+      "limitations": "One sampled geometric/light state only. No live camera motion, selection/project/bookmark mutation, completed-review invalidation, screenshots, computer vision, occlusion, perceived visibility, continuous coverage or flight qualification.",
+      "targets": "Run-local immutable records; maximum 8 and 200000 total retained IDs, oldest-first eviction; owned full IDs and query context; reject publication after cancellation or draft replacement."
+    },
+    "evaluationEntrypoint": "npm run --silent agent:eval --",
+    "evaluationDocumentation": "docs/AGENT_EVALUATIONS.md",
+    "draftContinuation": "previousDraft binds exact retained operations to the original project ID/revision; fresh review required",
+    "liveModelTested": false,
+    "stage_audience_operation": {
+      "surface": "model harness only; private draft mutation",
+      "arguments": {
+        "targetId": "opaque target from inspect_audience_selection in the same unchanged run draft",
+        "operationJson": "one edit_drones,transform_drones,set_keyframe,remove_keyframe,reset_drones command without ids; explicit cueId and ordinary parameters",
+        "explanation": "plain-language reason for the edit"
+      },
+      "result": "ordinary staging metadata plus targetId,matchedCount,target:{projectId,revision,stagedOperations,viewId,viewName,request,consideredCount,droneCount}; nested target records query baseline, outer stagedOperations records resulting draft",
+      "semantics": "Inject all owned matching IDs and atomically replay through ordinary command/expansion limits. Successful draft edits expire every target; failures preserve for repair. Never replaces original selection. Proposal operations include full explicit IDs; no handle persistence or automatic live-project commit."
+    }
+  }
+}

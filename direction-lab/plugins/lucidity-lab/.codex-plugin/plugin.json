@@ -1,0 +1,20 @@
+{
+  "name": "lucidity-lab",
+  "version": "0.1.0",
+  "description": "Inspect a simulated drone, review a radio change, and save verified demo results.",
+  "author": {
+    "name": "Lucidity"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Lucidity Lab",
+    "shortDescription": "Try drone setup through conversation.",
+    "longDescription": "Four local tools for the Lucidity direction lab. Uses simulated hardware and a shared aircraft record.",
+    "developerName": "Lucidity",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "defaultPrompt": ["Check the simulated Lucidity One drone."],
+    "brandColor": "#65476c"
+  },
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,390 @@
+/* Less narration; readable labels and consistent controls in both appearances. */
+.workspace-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+.lucidity-platform .platform-page-heading {
+  margin-bottom: 22px;
+}
+.lucidity-platform .platform-page-heading h1 {
+  font-size: 28px;
+  font-weight: 650;
+  margin: 0;
+  letter-spacing: -0.8px;
+}
+.lucidity-platform .platform-page-heading > p {
+  font-size: 13px;
+}
+.lucidity-platform .platform-primary,
+.lucidity-platform .platform-button,
+.lucidity-platform .platform-stop {
+  min-height: 40px;
+  font-size: 13px;
+  padding: 9px 12px;
+}
+.lucidity-platform .platform-card {
+  padding: 22px;
+}
+.lucidity-platform .platform-card :is(p, label),
+.lucidity-platform .platform-content label,
+.lucidity-platform .platform-check,
+.lucidity-platform .platform-table,
+.lucidity-platform .platform-notice,
+.lucidity-platform .platform-error {
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+}
+.lucidity-platform .platform-content input:not([type='checkbox']):not([type='file']),
+.lucidity-platform .platform-content select {
+  min-height: 40px;
+  font-size: 13px;
+}
+.lucidity-platform .platform-content :is(input[type='checkbox'], input[type='radio']) {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+.lucidity-platform .app-local-navigation button,
+.lucidity-platform .navigation-current {
+  min-height: 40px;
+  font-size: 13px;
+}
+.lucidity-platform .navigation-section-title,
+.lucidity-platform .tools-side-group h2,
+.lucidity-platform .shell-navigation-heading > span {
+  font-size: 11px;
+  letter-spacing: 0.7px;
+}
+.lucidity-platform .shell-device-summary strong {
+  font-size: 13px;
+}
+.lucidity-platform .shell-device-summary small {
+  font-size: 11px;
+}
+.lucidity-platform .app-switcher-popover a {
+  min-height: 54px;
+}
+.lucidity-platform .app-switcher-popover a strong {
+  font-size: 13px;
+}
+.lucidity-platform .app-switcher-popover a small {
+  font-size: 11px;
+}
+.lucidity-platform .platform-eyebrow,
+.lucidity-platform .platform-pill,
+.lucidity-platform .platform-family-list > span:not(.platform-pill),
+.lucidity-platform .platform-table th {
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+.lucidity-platform .platform-back {
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+.lucidity-platform .tool-title-row h1 {
+  font-size: 28px;
+}
+.lucidity-platform .tool-title-icon {
+  width: 36px;
+  height: 36px;
+}
+.lucidity-platform .platform-family-list {
+  margin-top: 12px;
+}
+.lucidity-platform .tool-scope {
+  padding: 8px 0;
+  margin-bottom: 20px;
+}
+.lucidity-platform .tool-scope details {
+  font-size: 13px;
+}
+.lucidity-platform .tool-scope p {
+  font-size: 13px;
+}
+.lucidity-platform .tool-card {
+  position: relative;
+  padding: 16px;
+  gap: 10px;
+}
+.lucidity-platform .tool-card-top {
+  margin: 0;
+}
+.lucidity-platform .tool-card h3 {
+  font-size: 16px;
+  font-weight: 650;
+}
+.lucidity-platform .tool-card-status {
+  font-size: 11px;
+  padding-top: 10px;
+}
+.lucidity-platform .tools-search-row > span {
+  font-size: 11px;
+}
+.lucidity-platform .tools-filter-tabs button {
+  font-size: 13px;
+  min-height: 32px;
+  padding: 7px 10px;
+}
+.lucidity-platform .tools-filters label.tools-available {
+  font-size: 13px;
+}
+.tools-coverage-note {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.tools-coverage-note summary,
+.music-device-details summary,
+.code-location summary {
+  cursor: pointer;
+  padding-block: 8px;
+}
+.tools-coverage-note p,
+.music-device-details p {
+  margin-top: 8px;
+  max-width: 70ch;
+}
+.music-device-details {
+  font-size: 13px;
+  color: var(--p-muted);
+  line-height: 1.7;
+  border-top: 1px solid var(--p-line);
+  padding-top: 6px;
+}
+.lucidity-platform .music-preset small {
+  font-size: 11px;
+}
+.lucidity-platform .music-note {
+  width: 112px;
+  padding: 12px 10px;
+}
+.lucidity-platform .music-note > span {
+  font-size: 11px;
+}
+.lucidity-platform .music-note select {
+  font-size: 13px !important;
+  padding: 7px !important;
+}
+.lucidity-platform .music-note button {
+  min-height: 32px;
+  min-width: 32px;
+}
+.lucidity-platform .music-add {
+  width: 112px;
+  font-size: 13px;
+}
+.lucidity-platform .music-score > div {
+  font-size: 11px;
+}
+.lucidity-platform .code-editor {
+  padding: 0;
+}
+.lucidity-platform .code-editor textarea {
+  font-size: 13px;
+}
+.lucidity-platform .code-editor .platform-toolbar > span {
+  font-size: 11px;
+}
+.code-location {
+  font-size: 11px;
+  line-height: 1.8;
+  margin: 14px 10px 0;
+  border-top: 1px solid var(--p-line);
+  color: var(--p-muted);
+}
+.code-location code {
+  overflow-wrap: anywhere;
+}
+.lucidity-platform .code-terminal p {
+  font-size: 13px;
+}
+.lucidity-platform .firmware-families strong {
+  font-size: 13px;
+}
+.lucidity-platform .firmware-families small {
+  font-size: 11px;
+}
+.lucidity-platform .platform-table th {
+  font-weight: 650;
+}
+.lucidity-platform .connection-steps small {
+  font-size: 11px;
+}
+.lucidity-platform .connection-steps strong {
+  font-size: 13px;
+  font-weight: 650;
+}
+.lucidity-platform .connection-steps li {
+  padding: 14px;
+}
+@media (max-width: 760px) {
+  .workspace-heading-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .lucidity-platform .platform-page-heading h1 {
+    font-size: 26px;
+  }
+  .lucidity-platform .tools-filter-tabs button {
+    min-height: 40px;
+  }
+  .lucidity-platform .platform-card {
+    padding: 18px;
+  }
+  .lucidity-platform .code-editor {
+    padding: 0;
+  }
+  .lucidity-platform .music-note,
+  .lucidity-platform .music-add {
+    width: 102px;
+  }
+  .lucidity-platform .app-local-navigation button {
+    min-height: 44px;
+  }
+}
+
+/* Home keeps one label per action, with detail only where it changes a decision. */
+.lucidity-platform .home-hero-actions {
+  margin-top: 22px;
+}
+.lucidity-platform .home-destination h3 {
+  margin: 16px 0 12px;
+}
+.lucidity-platform .destination-detail {
+  font-size: 11px;
+  border-top: 0;
+  padding-top: 0;
+}
+.lucidity-platform .home-bottom {
+  grid-template-columns: 1fr;
+}
+.lucidity-platform .home-bench-card {
+  padding: 18px;
+}
+.lucidity-platform .home-bench-card p {
+  font-size: 13px;
+}
+.lucidity-platform .sound-drone small {
+  font-size: 11px;
+}
+
+.lucidity-platform .firmware-families button {
+  padding: 14px;
+  gap: 8px;
+}
+.lucidity-platform .firmware-families svg {
+  width: 18px;
+  height: 18px;
+}
+.firmware-help {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--p-muted);
+}
+.firmware-help summary {
+  cursor: pointer;
+  padding-block: 8px;
+}
+/* New sound surfaces share the same restrained geometry as the rest of the app. */
+.lucidity-platform .sound-card,
+.lucidity-platform .sound-selection,
+.lucidity-platform .audio-import {
+  border-radius: var(--radius-panel);
+}
+.lucidity-platform .sound-card {
+  background: var(--p-surface);
+}
+.lucidity-platform .sound-card.selected {
+  border-color: var(--p-lilac);
+}
+.lucidity-platform .sound-selection {
+  background: var(--p-raised);
+}
+.lucidity-platform .sound-library p,
+.lucidity-platform .sound-drone small,
+.lucidity-platform .audio-import small {
+  color: var(--p-muted);
+}
+.lucidity-platform .sound-drone label {
+  min-height: 40px;
+}
+
+/* Hardware instructions and observed values must remain readable outside. */
+:root .aircraft-workspace :is(p, small, label, button, select),
+:root .bench-show-panel :is(p, small, label),
+:root .aircraft-workspace-banner > span,
+:root .aircraft-section-heading > span:first-child {
+  font-size: 13px;
+  line-height: 1.6;
+}
+:root .aircraft-workspace :is(button, select) {
+  min-height: 40px;
+}
+:root .aircraft-workspace input[type='checkbox'],
+:root .bench-show-checks input {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+:root .aircraft-metric :is(dt, dd) {
+  font-size: 13px;
+}
+:root .bench-show-eyebrow,
+:root .bench-show-hardware-badge {
+  font-size: 11px;
+}
+:root .storyboard-motor-caption > span {
+  font-size: 11px;
+}
+:root .storyboard-motor-caption :is(p, small) {
+  font-size: 11px;
+  line-height: 1.5;
+}
+:root .storyboard-motor-caption strong {
+  font-size: 16px;
+}
+:root .storyboard-motor-caption output {
+  font-size: 11px;
+}
+:root .storyboard-motor-cues :is(span, time) {
+  font-size: 11px;
+}
+:root .storyboard-motor-cues b {
+  font-size: 13px;
+}
+:root .storyboard-motor-cues button {
+  min-height: 40px;
+}
+:root .studio-home-header-actions button,
+:root .studio-home-starter button {
+  font-size: 13px;
+  min-height: 40px;
+}
+:root .studio-home-storyboard :is(dt, small),
+:root .studio-home-storyboard-footer {
+  font-size: 11px;
+}
+:root .studio-home-storyboard dd {
+  font-size: 13px;
+}
+@media (max-width: 640px) {
+  .lucidity-platform .home-hero .drone-study {
+    display: none;
+  }
+  .lucidity-platform .home-hero {
+    min-height: 0;
+  }
+}
+
+@media (pointer: coarse) {
+  .lucidity-platform :is(.platform-primary, .platform-button, .platform-stop, .platform-text-button, .platform-back, .shell-icon-button, .show-export-button),
+  .lucidity-platform .app-local-navigation button,
+  .lucidity-platform .tools-filter-tabs button,
+  .lucidity-platform .music-note button,
+  .lucidity-platform .code-files .platform-section-heading button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

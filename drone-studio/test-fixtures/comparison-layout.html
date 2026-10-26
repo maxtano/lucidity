@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparison layout · synthetic viewport fixture</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font:
+          14px/1.5 system-ui,
+          sans-serif;
+        background: #0b1018;
+        color: #dce5ec;
+      }
+      body {
+        margin: 20px;
+      }
+      h1 {
+        margin: 0 0 10px;
+        font-size: 20px;
+      }
+      .controls {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+      select {
+        font: inherit;
+        padding: 5px 8px;
+      }
+      p {
+        margin: 8px 0 14px;
+        color: #9baaba;
+      }
+      #viewport-host {
+        max-width: 100%;
+        overflow: auto;
+        border: 1px solid #344254;
+      }
+      iframe {
+        display: block;
+        border: 0;
+        flex: none;
+        max-width: none;
+        max-height: none;
+      }
+      output {
+        font-variant-numeric: tabular-nums;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Synthetic comparison viewport</h1>
+    <div class="controls">
+      <label
+        >Fixture viewport
+        <select id="viewport" aria-label="Fixture viewport" disabled>
+          <option value="390x844">390 × 844 · portrait</option>
+          <option value="900x480" selected>900 × 480 · short</option>
+          <option value="1440x900">1440 × 900 · tall</option>
+        </select>
+      </label>
+      <output id="dimensions" aria-label="Actual fixture dimensions"
+        >Waiting for local fixture…</output
+      >
+    </div>
+    <p>
+      Exact unscaled iframe sizes. Changing the viewport resizes the same synthetic preview without
+      reloading it. Scroll the outer frame to reach clipped content.
+    </p>
+    <details open aria-label="Wrapper diagnostics">
+      <summary>Wrapper diagnostics · last 12 entries</summary>
+      <pre
+        id="diagnostics"
+        style="white-space: pre-wrap; overflow-wrap: anywhere; font: 11px/1.5 monospace"
+      ></pre>
+    </details>
+    <div id="viewport-host"></div>
+    <script type="module">
+      const select = document.getElementById('viewport');
+      const output = document.getElementById('dimensions');
+      const host = document.getElementById('viewport-host');
+      if (!import.meta.env.DEV) {
+        output.textContent = 'Available only in the local development server.';
+      } else {
+        const diagnostics = document.getElementById('diagnostics');
+        const entries = [];
+        const errorDetail = (error) =>
+          error instanceof Error
+            ? (error.stack ?? `${error.name}: ${error.message}`)
+            : String(error);
+        const record = (phase, detail) => {
+          entries.push(`${performance.now().toFixed(1)} ms · ${phase}\n${detail.slice(0, 4000)}`);
+          if (entries.length > 12) entries.shift();
+          diagnostics.textContent = entries.join('\n\n');
+        };
+        const onError = (event) =>
+          record(
+            'Wrapper window error',
+            `${event.message}\n${event.filename}:${event.lineno}:${event.colno}\n${errorDetail(event.error)}`
+          );
+        const onRejection = (event) =>
+          record('Wrapper unhandled rejection', errorDetail(event.reason));
+        window.addEventListener('error', onError);
+        window.addEventListener('unhandledrejection', onRejection);
+        record(
+          'Wrapper listeners installed',
+          `Before iframe creation; readyState=${document.readyState}. Child errors appear in the child Fixture diagnostics section. Errors are not suppressed.`
+        );
+        const frame = document.createElement('iframe');
+        frame.title = 'Synthetic proposal comparison';
+        frame.allowFullscreen = true;
+        frame.allow = 'fullscreen';
+        frame.src = '/test-fixtures/proposal-targets.html';
+        let child = null;
+        let pending = 0;
+        let disposed = false;
+        const readDimensions = () => {
+          if (disposed) return;
+          const actual = frame.contentWindow;
+          if (!actual) return;
+          output.textContent = `Child viewport: ${actual.innerWidth} × ${actual.innerHeight} CSS px · iframe: ${frame.clientWidth} × ${frame.clientHeight} CSS px`;
+        };
+        const resize = () => {
+          const [width, height] = select.value.split('x').map(Number);
+          frame.width = String(width);
+          frame.height = String(height);
+          frame.style.width = `${width}px`;
+          frame.style.height = `${height}px`;
+          cancelAnimationFrame(pending);
+          pending = requestAnimationFrame(readDimensions);
+        };
+        const loaded = () => {
+          child?.removeEventListener('resize', readDimensions);
+          child = frame.contentWindow;
+          child?.addEventListener('resize', readDimensions);
+          record(
+            'Iframe load event',
+            `Child URL=${child?.location.href}; readyState=${child?.document.readyState}.`
+          );
+          readDimensions();
+        };
+        frame.addEventListener('load', loaded);
+        select.addEventListener('change', resize);
+        resize();
+        host.append(frame);
+        select.disabled = false;
+        import.meta.hot?.dispose(() => {
+          disposed = true;
+          cancelAnimationFrame(pending);
+          child?.removeEventListener('resize', readDimensions);
+          frame.removeEventListener('load', loaded);
+          select.removeEventListener('change', resize);
+          window.removeEventListener('error', onError);
+          window.removeEventListener('unhandledrejection', onRejection);
+          frame.remove();
+        });
+      }
+    </script>
+  </body>
+</html>

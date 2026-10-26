@@ -1,0 +1,45 @@
+.storyboard-motor-preview {
+  border: 1px solid var(--ds-border);
+  border-radius: var(--radius-panel);
+  background: var(--ds-surface);
+  padding: 12px;
+  color: var(--ds-text);
+}
+.storyboard-motor-overview { display: flex; align-items: center; gap: 16px; }
+.storyboard-motor-drone { display: block; width: 160px; flex: 0 0 160px; }
+.storyboard-motor-arms { stroke: var(--ds-border); stroke-width: 8; stroke-linecap: round; }
+.storyboard-motor-body { fill: var(--ds-surface); stroke: var(--ds-border); }
+.storyboard-motor-front { fill: var(--ds-primary); }
+.storyboard-motor-ring { fill: var(--ds-bg); stroke: var(--ds-border); }
+.storyboard-motor-disc { fill: var(--ds-surface); }
+.storyboard-motor-drone text { fill: var(--ds-text); font: var(--text-xs) var(--font-mono); }
+.storyboard-motor-drone .storyboard-motor-view-label { fill: var(--ds-text-muted); font-size: 7px; }
+.storyboard-motor-drone .is-active .storyboard-motor-ring { stroke: var(--ds-primary); stroke-width: 2; }
+.storyboard-motor-drone .is-active .storyboard-motor-disc { fill: var(--ds-primary); }
+.storyboard-motor-drone .is-active text { fill: var(--ds-on-primary); }
+.storyboard-motor-caption { display: grid; gap: 6px; min-width: 0; }
+.storyboard-motor-caption > span { color: var(--ds-text-muted); font: var(--text-xs) var(--font-mono); letter-spacing: .7px; }
+.storyboard-motor-caption strong { color: var(--ds-text); font-size: 14px; font-weight: 500; overflow-wrap: anywhere; }
+.storyboard-motor-caption p { margin: 0; font-size: var(--text-xs); line-height: 1.5; color: var(--ds-text-muted); }
+.storyboard-motor-caption output { color: var(--ds-text); font: var(--text-sm) var(--font-mono); }
+.storyboard-motor-caption small { color: var(--ds-text-muted); font-size: var(--text-xs); }
+.storyboard-motor-track { position: relative; height: 3px; margin: 14px 3px 16px; background: var(--ds-border); }
+.storyboard-motor-track > span { display: block; height: 100%; background: var(--ds-primary); }
+.storyboard-motor-track i { position: absolute; top: -2px; height: 7px; width: 2px; background: var(--ds-primary); }
+.storyboard-motor-track .is-active { background: var(--ds-primary); }
+.storyboard-motor-cues { display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 6px; list-style: none; padding: 0; margin: 0; }
+.storyboard-motor-cues li { min-width: 0; border: 1px solid var(--ds-border); border-radius: var(--radius-control); }
+.storyboard-motor-cues li.is-active { border-color: var(--ds-primary); background: color-mix(in srgb, var(--ds-primary) 8%, transparent); }
+.storyboard-motor-cues li > div, .storyboard-motor-cues button { display: flex; align-items: center; gap: 8px; padding: 8px; width: 100%; text-align: left; box-sizing: border-box; }
+.storyboard-motor-cues button { border: 0; background: transparent; color: inherit; cursor: pointer; }
+.storyboard-motor-cues button:focus-visible { outline: var(--focus-width) solid var(--ds-focus); outline-offset: var(--focus-offset); }
+.storyboard-motor-cues button:hover { background: color-mix(in srgb, var(--ds-primary) 8%, transparent); }
+.storyboard-motor-cues b { color: var(--ds-text); font: var(--text-xs) var(--font-mono); }
+.storyboard-motor-cues span { min-width: 0; flex: 1; font-size: var(--text-xs); overflow-wrap: anywhere; }
+.storyboard-motor-cues time { color: var(--ds-text-muted); font: var(--text-xs) var(--font-mono); white-space: nowrap; }
+@media (max-width: 480px) {
+  .storyboard-motor-overview { gap: 10px; }
+  .storyboard-motor-drone { width: 120px; flex-basis: 120px; }
+  .storyboard-motor-caption strong { font-size: var(--text-sm); }
+  .storyboard-motor-cues { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
