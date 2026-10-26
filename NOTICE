@@ -1,0 +1,13 @@
+Lucidity
+Copyright 2026 maxtano
+
+Original Lucidity code and documentation are licensed under the Apache
+License, Version 2.0. See LICENSE.
+
+Third-party materials retain their own licenses and copyright notices:
+- Bluejay firmware: GPL-3.0-or-later. See
+  drone-studio/firmware/bluejay/COPYING and README.md in that directory
+  for attribution, corresponding source, and build instructions.
+- Bundled fonts: SIL Open Font License 1.1. See the *-OFL.txt files in
+  drone-studio/public/fonts/.
+- External dependencies retain their respective upstream licenses.

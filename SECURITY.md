@@ -18,7 +18,7 @@ The automated suites use mock devices. Physical flight, firmware changes and sim
 
 ## Third-party materials
 
-Bundled Bluejay firmware retains its [upstream license and source references](drone-studio/firmware/bluejay/README.md). Bundled fonts retain their OFL notices in `drone-studio/public/fonts/`. The downloaded SMA mount and its derivatives are excluded until their source and redistribution terms are documented. No repository-wide open-source license has been selected; third-party licenses continue to apply to their respective materials.
+Bundled Bluejay firmware retains its [upstream license and source references](drone-studio/firmware/bluejay/README.md). Bundled fonts retain their OFL notices in `drone-studio/public/fonts/`. The downloaded SMA mount and its derivatives are excluded until their source and redistribution terms are documented. Original Lucidity code and documentation are licensed under [Apache 2.0](LICENSE). Third-party licenses continue to apply to their respective materials; see [NOTICE](NOTICE).
 
 ## Public demo
 

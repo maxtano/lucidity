@@ -2,6 +2,7 @@
   "name": "lucidity-direction-lab",
   "version": "0.1.0",
   "private": true,
+  "license": "Apache-2.0",
   "type": "module",
   "description": "Three small interaction samples sharing a simulated drone",
   "scripts": {

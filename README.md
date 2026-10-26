@@ -71,4 +71,8 @@ GitHub Pages builds and publishes the static preview from `main` through [this w
 
 [Studio guide](drone-studio/README.md) · [Architecture](drone-studio/docs/TECHNICAL.md) · [Agent tool contract](drone-studio/docs/agent-tools.json) · [Local execution & security](SECURITY.md)
 
-<sub>Third-party firmware and fonts retain their respective licenses and source notices. No repository-wide open-source license has been selected. See [third-party materials](SECURITY.md#third-party-materials).</sub>
+## License
+
+Original Lucidity code and documentation are licensed under [Apache 2.0](LICENSE). Commercial use, modification, and redistribution are permitted under its terms.
+
+Bundled Bluejay firmware (GPL-3.0-or-later), fonts (SIL OFL 1.1), and external dependencies retain their own licenses. See [NOTICE](NOTICE) and [third-party materials](SECURITY.md#third-party-materials).
