@@ -24,6 +24,8 @@ jobs:
           cache-dependency-path: drone-studio/package-lock.json
       - uses: actions/configure-pages@v5
       - run: npm ci
+      - name: Install the local workbench test shell
+        run: sudo apt-get update && sudo apt-get install -y zsh
       - run: npm test -- --maxWorkers=2
       - run: npm run build:demo
       - uses: actions/upload-pages-artifact@v4
