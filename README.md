@@ -1,26 +1,28 @@
 <div align="center">
 
+<img src="drone-studio/public/favicon.svg" width="48" height="48" alt="Lucidity" />
+
 # Lucidity
 
 ### The agent-first workspace for drone engineering.
 
-Setup, configuration, firmware, code, and evidence—all connected to your build.
+Set up, configure, and program your drones—with the tools and evidence in one place.
 
-**[Try the live demo](https://maxtano.github.io/lucidity/)** · [Product vision](drone-studio/docs/PRODUCT_BRIEF.md) · [Studio guide](drone-studio/README.md) · [Run locally](#run-locally)
+**[Explore the live workspace →](https://maxtano.github.io/lucidity/)** · [Run locally](#run-locally) · [Product vision](drone-studio/docs/PRODUCT_BRIEF.md)
 
-[![Lucidity’s all-in-one workspace preview, with aircraft configuration and an inspectable agent workflow](docs/media/lucidity-demo.jpg)](https://maxtano.github.io/lucidity/)
+[![Build and tests](https://github.com/maxtano/lucidity/actions/workflows/pages.yml/badge.svg)](https://github.com/maxtano/lucidity/actions/workflows/pages.yml)
 
-*Explore setup, configuration, firmware, code, and evidence in an interactive product preview. The agent walkthrough is scripted; the show editor uses the real choreography engine.*
+[![Lucidity’s all-in-one workspace preview, with aircraft configuration and an inspectable agent workflow](docs/media/workspace-preview.jpg)](https://maxtano.github.io/lucidity/)
+
+<sub>Configuration and agent workflow preview · Synthetic aircraft · Scripted agent walkthrough<br/>[View full-size image](docs/media/workspace-preview.jpg) · No account or hardware needed</sub>
 
 </div>
 
 ## The vision
 
-Building a drone means working across parts lists, firmware tools, parameter tables, code, and flight logs. The context gets scattered: what changed, which aircraft it changed, and whether it actually worked.
+Drone engineering spans parts, firmware, parameters, code, and flight logs. Lucidity connects that work around the aircraft: what changed, where it changed, and whether it worked.
 
-Lucidity brings that work together around the build. The goal is a workspace where **people and AI agents use the same precise, inspectable tools**—from configuring a component to investigating a flight. Every change should connect to its target, its readback, and the evidence it produced.
-
-Drone shows are one application. The bigger idea is a continuous engineering workflow, from the first component to the next experiment.
+The goal is a workspace where **people and AI agents use the same precise, inspectable tools**. Inspect the state, propose a change, review the difference, and verify the result. Drone shows are one application of that broader engineering workflow.
 
 ## What works today
 
@@ -33,7 +35,12 @@ Drone shows are one application. The bigger idea is a continuous engineering wor
 
 **In development:** connected build histories, broader hardware support, and deeper agent workflows across the workspace. The app currently has no integrated AI chat. See the [product brief](drone-studio/docs/PRODUCT_BRIEF.md) for the full direction.
 
-This is an early engineering prototype. The GitHub Pages preview uses synthetic aircraft data and a scripted agent walkthrough; hardware workflows run locally. Show exports are design artifacts, and guarded mission tooling has simulator evidence, not a completed physical Lucidity flight. Read the [mission gate](drone-studio/docs/MISSION_LAUNCH_GATE.md) before aircraft use.
+<details>
+<summary>Prototype status and hardware boundaries</summary>
+
+The GitHub Pages preview uses synthetic aircraft data and a scripted agent walkthrough. Hardware workflows run locally. Show exports are design artifacts; guarded mission tooling has simulator evidence, not a completed physical Lucidity flight. Read the [mission gate](drone-studio/docs/MISSION_LAUNCH_GATE.md) before aircraft use.
+
+</details>
 
 ## Run locally
 
@@ -62,6 +69,6 @@ GitHub Pages builds and publishes the static preview from `main` through [this w
 - **[direction-lab/](direction-lab/)** — a separate simulated-drone experiment with chat, a workbench, and an MCP server.
 - **[cad/](cad/)** — experimental printable parts and generators.
 
-[Architecture](drone-studio/docs/TECHNICAL.md) · [Agent tool contract](drone-studio/docs/agent-tools.json) · [Local execution & security](SECURITY.md)
+[Studio guide](drone-studio/README.md) · [Architecture](drone-studio/docs/TECHNICAL.md) · [Agent tool contract](drone-studio/docs/agent-tools.json) · [Local execution & security](SECURITY.md)
 
 <sub>Third-party firmware and fonts retain their respective licenses and source notices. No repository-wide open-source license has been selected. See [third-party materials](SECURITY.md#third-party-materials).</sub>
