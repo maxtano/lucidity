@@ -54,7 +54,7 @@ export function Demo() {
   return <div className="demo-shell">
     <a className="demo-skip" href="#demo-workspace">Skip to demo</a>
     <header className="demo-header">
-      <a className="demo-brand" href="/" aria-label="Lucidity demo home"><LucidityMark /><strong>lucidity</strong></a>
+      <a className="demo-brand" href="./" aria-label="Lucidity demo home"><LucidityMark /><strong>lucidity</strong></a>
       <span className="demo-divider" />
       <span className="demo-product">Drone engineering, in one workspace.</span>
       <nav aria-label="Product links"><button onClick={() => setVision(true)}>The vision</button><a href={repository} target="_blank" rel="noreferrer"><Github size={15} />View source<ArrowUpRight size={13} /></a></nav>

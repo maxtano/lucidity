@@ -2,15 +2,15 @@
 
 # Lucidity
 
-### Drone engineering, in one workspace.
+### The agent-first workspace for drone engineering.
 
-Design, configure, program, and understand the aircraft you build.
+Setup, configuration, firmware, code, and evidence—all connected to your build.
 
-**[Try the live demo](https://lucidity-drone-studio.greysage256.chatgpt.site)** · [Product vision](drone-studio/docs/PRODUCT_BRIEF.md) · [Studio guide](drone-studio/README.md) · [Run locally](#run-locally)
+**[Try the live demo](https://maxtano.github.io/lucidity/)** · [Product vision](drone-studio/docs/PRODUCT_BRIEF.md) · [Studio guide](drone-studio/README.md) · [Run locally](#run-locally)
 
-[![Lucidity’s interactive drone show preview, with a 3D formation, storyboard and live controls](docs/media/lucidity-demo.jpg)](https://lucidity-drone-studio.greysage256.chatgpt.site)
+[![Lucidity’s all-in-one workspace preview, with aircraft configuration and an inspectable agent workflow](docs/media/lucidity-demo.jpg)](https://maxtano.github.io/lucidity/)
 
-*An interactive slice of Lucidity: choreograph light, change formations, and explore the result in 3D. No account or hardware required.*
+*Explore setup, configuration, firmware, code, and evidence in an interactive product preview. The agent walkthrough is scripted; the show editor uses the real choreography engine.*
 
 </div>
 
@@ -26,14 +26,14 @@ Drone shows are one application. The bigger idea is a continuous engineering wor
 
 | Workspace | In the prototype |
 | --- | --- |
-| **Drone Show** | 3D choreography, individual light and motion keyframes, a timeline, audience previews, and editable design exports. |
 | **Tools** | Local ArduPilot telemetry, parameter inspection and verified edits, ESC configuration and firmware workflows, and flight-log analysis. |
 | **Music & Code** | Motor melody composition, supported ESC startup tunes, a local code editor, and reviewed terminal commands. |
 | **Agent tooling** | Shared atomic show-editing commands, a JSON CLI, and a synthetic evaluation harness. |
+| **Drone Show** | 3D choreography, individual light and motion keyframes, a timeline, audience previews, and editable design exports. |
 
 **In development:** connected build histories, broader hardware support, and deeper agent workflows across the workspace. The app currently has no integrated AI chat. See the [product brief](drone-studio/docs/PRODUCT_BRIEF.md) for the full direction.
 
-This is an early engineering prototype. The public demo runs entirely in the browser; hardware workflows run locally. Show exports are design artifacts, and guarded mission tooling has simulator evidence, not a completed physical Lucidity flight. Read the [mission gate](drone-studio/docs/MISSION_LAUNCH_GATE.md) before aircraft use.
+This is an early engineering prototype. The GitHub Pages preview uses synthetic aircraft data and a scripted agent walkthrough; hardware workflows run locally. Show exports are design artifacts, and guarded mission tooling has simulator evidence, not a completed physical Lucidity flight. Read the [mission gate](drone-studio/docs/MISSION_LAUNCH_GATE.md) before aircraft use.
 
 ## Run locally
 
@@ -53,6 +53,8 @@ npm test -- --maxWorkers=2
 npm run build
 npm run build:demo   # standalone static demo → dist-demo/
 ```
+
+GitHub Pages builds and publishes the static preview from `main` through [this workflow](.github/workflows/pages.yml). No server or API credentials are deployed.
 
 ## Explore the code
 
